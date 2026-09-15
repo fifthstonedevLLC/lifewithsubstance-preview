@@ -1,4 +1,8 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
 <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Life with Substance Homepage</title>
 <meta name="description" content="Two homepage design directions for Life with Substance Nutrition Therapy.">
 <meta name="robots" content="noindex, nofollow">
@@ -401,6 +405,8 @@ ul,ol{margin:0;padding:0;list-style:none}
 .switcher button[aria-pressed="true"]{background:var(--main);color:var(--ink)}
 .switcher button b{font-family:var(--serif);margin-right:4px}
 .switcher :focus-visible{outline-color:var(--main)}
+/* keep the fixed switcher from covering the end of the footer */
+.a-footer .ft-legal,.b-footer .ft-legal{padding-bottom:84px}
 
 /* ---------- Responsive ---------- */
 @media (max-width:1080px){
@@ -456,6 +462,8 @@ ul,ol{margin:0;padding:0;list-style:none}
   .b-panel .svc a svg{grid-column:2;grid-row:1 / 3}
 }
 </style>
+</head>
+<body>
 
 <!-- ============================ SVG sprite ============================ -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -713,7 +721,7 @@ ul,ol{margin:0;padding:0;list-style:none}
       <div class="ft-grid">
         <div><a class="logo" href="#"><span class="l1">Life with</span><span class="l2">Substance</span></a><p class="ft-blurb">Pediatric &amp; eating disorder dietitian. Compassionate, weight-inclusive nutrition therapy for kids, teens, and adults.</p></div>
         <div><h4>Services</h4><ul><li><a href="#">Pediatrics</a></li><li><a href="#">Eating Disorder Recovery</a></li><li><a href="#">Disordered Eating / Chronic Dieting</a></li><li><a href="#">Body Image Healing</a></li></ul></div>
-        <div><h4>Practice</h4><ul><li><a href="#">About</a></li><li><a href="#">Blog &amp; Resources</a></li><li><a href="#">Shop</a></li><li><a href="#">Contact</a></li><li><a href="#">Client Portal Login</a></li></ul></div>
+        <div><h4>Practice</h4><ul><li><a href="#">About</a></li><li><a href="#">Blog &amp; Resources</a></li><li><a href="#">Contact</a></li><li><a href="#">Client Portal Login</a></li></ul></div>
         <div><h4>Get in touch</h4><ul><li><a href="mailto:christine@lifewithsubstance.com">christine@lifewithsubstance.com</a></li><li><a href="tel:+15633417787">(563) 341-7787</a></li><li>Dubuque, Iowa · Virtual telehealth in IA, IL &amp; WI</li><li><a href="#">Instagram</a> · <a href="#">Facebook</a> · <a href="#">Pinterest</a></li></ul></div>
       </div>
       <div class="ft-legal">
@@ -922,8 +930,8 @@ ul,ol{margin:0;padding:0;list-style:none}
     <section class="b-section" style="padding-top:0" aria-labelledby="b-res-h">
       <div class="wrap">
         <div class="sec-head">
-          <div><p class="eyebrow">Resources</p><h2 class="h2" id="b-res-h">From the blog</h2></div>
-          <div class="sec-head-aside"><p class="body-copy">Practical, shame-free guidance for feeding kids, navigating picky eating, and stepping away from diet culture.</p><a class="carrot" href="#"><span>Browse all resources</span><svg class="ico"><use href="#i-arrow"/></svg></a></div>
+          <div><div class="eyebrow-row"><p class="eyebrow">Resources</p><a class="carrot" href="#"><span>Browse all resources</span><svg class="ico"><use href="#i-arrow"/></svg></a></div><h2 class="h2" id="b-res-h">From the blog</h2></div>
+          <div class="sec-head-aside"><p class="body-copy">Practical, shame-free guidance for feeding kids, navigating picky eating, and stepping away from diet culture.</p></div>
         </div>
         <div class="a-posts">
           <a class="a-post" href="#"><div class="art"><span class="fork-mark" aria-hidden="true"></span></div><div class="txt"><span class="cat">Picky eating</span><h3>Is your child a picky eater or suffering from ARFID?</h3><span class="meta">by Christine</span></div></a>
@@ -958,7 +966,7 @@ ul,ol{margin:0;padding:0;list-style:none}
       <div class="ft-grid">
         <div><a class="logo" href="#"><span class="l1">Life with</span><span class="l2">Substance</span></a><p class="ft-blurb">Pediatric &amp; eating disorder dietitian. Compassionate, weight-inclusive nutrition therapy for kids, teens, and adults.</p></div>
         <div><h4>Services</h4><ul><li><a href="#">Pediatrics</a></li><li><a href="#">Eating Disorder Recovery</a></li><li><a href="#">Disordered Eating / Chronic Dieting</a></li><li><a href="#">Body Image Healing</a></li></ul></div>
-        <div><h4>Practice</h4><ul><li><a href="#">About</a></li><li><a href="#">Blog &amp; Resources</a></li><li><a href="#">Shop</a></li><li><a href="#">Contact</a></li><li><a href="#">Client Portal Login</a></li></ul></div>
+        <div><h4>Practice</h4><ul><li><a href="#">About</a></li><li><a href="#">Blog &amp; Resources</a></li><li><a href="#">Contact</a></li><li><a href="#">Client Portal Login</a></li></ul></div>
         <div><h4>Get in touch</h4><ul><li><a href="mailto:christine@lifewithsubstance.com">christine@lifewithsubstance.com</a></li><li><a href="tel:+15633417787">(563) 341-7787</a></li><li>Dubuque, Iowa · Virtual telehealth in IA, IL &amp; WI</li><li><a href="#">Instagram</a> · <a href="#">Facebook</a> · <a href="#">Pinterest</a></li></ul></div>
       </div>
       <div class="ft-legal">
@@ -996,6 +1004,10 @@ ul,ol{margin:0;padding:0;list-style:none}
     if(scroll) window.scrollTo({ top: 0, behavior: 'auto' });
   }
   btns.forEach(b => b.addEventListener('click', () => show(b.dataset.opt, true)));
+  window.addEventListener('hashchange', () => {
+    const h = (location.hash || '').match(/option-([ab])/);
+    if(h) show(h[1], true);
+  });
   const m = (location.hash || '').match(/option-([ab])/);
   show(m ? m[1] : 'a', false);
 
@@ -1105,3 +1117,6 @@ ul,ol{margin:0;padding:0;list-style:none}
   });
 })();
 </script>
+
+</body>
+</html>
