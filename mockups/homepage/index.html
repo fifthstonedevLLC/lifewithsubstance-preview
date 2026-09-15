@@ -1,0 +1,1100 @@
+<meta charset="utf-8">
+<title>Life with Substance Homepage</title>
+<meta name="description" content="Two homepage design directions for Life with Substance Nutrition Therapy.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Allura&family=Karla:ital,wght@0,300..800;1,400&family=Lora:ital,wght@0,400..700;1,400..700&display=swap">
+<style>
+/* ---------- Tokens (from lifewithsubstance.fifthstonedev.com/style-guide) ---------- */
+:root{
+  --main:#E2B1A5; --main-darker:#C86C56; --main-light:#F5E4E0; --main-overlay:rgba(227,178,166,.24);
+  --accent:#DDE6DC; --accent-dark:#8FA894; --accent-darker:#3A5145; --accent-overlay:rgba(143,168,148,.24);
+  --ink:#0A0A0A; --grey:#333333; --light:#F5F5F5; --white:#FFFFFF;
+  --hair:#EADFDB; --hair-sage:#C9D6C8;
+  --r-ui:10px; --r-btn:15px; --r-tile:24px;
+  --shadow-sm:0 1px 3px rgba(0,0,0,.12); --shadow-md:0 4px 6px rgba(0,0,0,.1); --shadow-lg:0 10px 15px rgba(0,0,0,.1);
+  --shadow-heavy:0 20px 25px -5px rgba(0,0,0,.1);
+  --ease:cubic-bezier(.215,.61,.355,1); --ease-bounce:cubic-bezier(.22,1,.36,1);
+  --serif:"Lora", Georgia, "Times New Roman", serif;
+  --sans:"Karla", "Helvetica Neue", Arial, sans-serif;
+  --script:"Allura", "Snell Roundhand", "Brush Script MT", cursive;
+  --gutter:clamp(16px, 4vw, 32px);
+  color-scheme:light;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--white);color:var(--ink);font:400 17px/1.55 var(--sans);-webkit-font-smoothing:antialiased;padding-bottom:96px}
+img{max-width:100%;display:block;height:auto}
+a{color:inherit}
+h1,h2,h3,h4{font-family:var(--serif);margin:0;text-wrap:balance;color:var(--ink)}
+p{margin:0}
+ul,ol{margin:0;padding:0;list-style:none}
+:focus-visible{outline:3px solid var(--accent-darker);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1200px;margin-inline:auto;padding-inline:var(--gutter)}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* ---------- Brand marks ---------- */
+.logo{display:inline-flex;flex-direction:column;text-decoration:none;color:var(--ink);line-height:1;flex-shrink:0}
+.logo .l1{font-family:var(--serif);font-weight:500;font-size:1.5rem;letter-spacing:-.01em;line-height:1}
+.logo .l2{font-family:var(--script);font-size:2.6rem;line-height:.8;margin-top:.02em;margin-left:-.04em}
+.fork-mark{display:inline-block;aspect-ratio:1;background:var(--main);
+  -webkit-mask:url(img/fork-leaf.png) center/contain no-repeat;mask:url(img/fork-leaf.png) center/contain no-repeat}
+.tree-mark{display:block;aspect-ratio:368/365;background:var(--accent-dark);pointer-events:none;
+  -webkit-mask:url(img/tree.png) center/contain no-repeat;mask:url(img/tree.png) center/contain no-repeat}
+.ico{width:24px;height:24px;flex-shrink:0;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+
+/* ---------- Buttons (style-guide patterns) ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;min-height:44px;padding:9px 22px;
+  font:700 1rem/1.4 var(--sans);color:var(--ink);text-decoration:none;border:2px solid transparent;border-radius:var(--r-btn);
+  cursor:pointer;transition:transform .2s var(--ease),box-shadow .2s var(--ease),background-color .2s var(--ease),border-color .2s var(--ease)}
+.btn:hover{transform:translateY(-3px) scale(1.03);box-shadow:1px 4px 6px rgba(0,0,0,.1)}
+.btn:active{transform:translateY(-2px) scale(.97)}
+.btn-main{background:var(--main)}
+.btn-main:hover{background:var(--main-darker)}
+.btn-soft{background:var(--main-light)}
+.btn-soft:hover{background:var(--white)}
+.btn-accent{background:var(--white);border-color:var(--accent-dark)}
+.btn-accent:hover{background:var(--accent-dark)}
+.btn-white{background:var(--white)}
+.btn-white:hover{background:var(--main-light)}
+.btn-lg{padding:12px 26px;font-size:1.0625rem}
+.btn-sm{padding:7px 18px}
+.carrot{display:inline-flex;align-items:center;gap:.45rem;min-height:44px;font-weight:700;color:var(--ink);text-decoration:none;border-radius:var(--r-btn)}
+.carrot svg{width:18px;height:18px;transition:transform .25s var(--ease)}
+.carrot:hover svg{transform:translateX(4px)}
+.carrot span{background:linear-gradient(currentColor,currentColor) 0 100%/0 2px no-repeat;transition:background-size .3s var(--ease)}
+.carrot:hover span{background-size:100% 2px}
+
+/* ---------- Shared type ---------- */
+.eyebrow{display:flex;align-items:center;gap:.6rem;font:700 .8125rem/1.3 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--accent-darker)}
+.h2{font-size:clamp(2rem,3.2vw,2.75rem);font-weight:700;line-height:1.12;letter-spacing:-.01em}
+.lede{font-size:1.125rem;line-height:1.6;color:var(--grey);max-width:34em}
+.body-copy{color:var(--grey);max-width:38em}
+.body-copy + .body-copy{margin-top:1rem}
+/* Section heads share the column grid of the content below them, so the
+   heading starts on column 1 and the intro copy starts on the last column. */
+.sec-head{display:grid;grid-template-columns:repeat(var(--cols,3),minmax(0,1fr));column-gap:var(--cg,24px);row-gap:1rem;align-items:end;margin-bottom:clamp(32px,4vw,56px)}
+.sec-head > :first-child{grid-column:1 / -2}
+.sec-head > :last-child{grid-column:-2 / -1}
+.sec-head.cols-4{--cols:4}
+.sec-head.cols-4 > :first-child{grid-column:1 / 3}
+.sec-head.cols-4 > :last-child{grid-column:3 / 5}
+.sec-head .eyebrow{margin-bottom:.75rem}
+.sec-head-aside{display:grid;gap:.5rem;justify-items:start}
+/* Script accent words sit on the serif's baseline without stretching the line box */
+.script{font-family:var(--script);font-weight:400;font-style:normal;letter-spacing:0;line-height:0;vertical-align:baseline}
+.ph-tag{display:inline-block;font:700 .6875rem/1 var(--sans);letter-spacing:.1em;text-transform:uppercase;padding:5px 8px;border-radius:6px;background:var(--light);color:var(--grey)}
+
+/* ---------- Header (shared) ---------- */
+.site-hd{position:sticky;top:0;z-index:50;transition:box-shadow .3s var(--ease)}
+.site-hd.scrolled{box-shadow:0 2px 12px rgba(0,0,0,.08)}
+.hd-row{display:flex;align-items:center;gap:2rem;min-height:84px}
+.main-nav ul{display:flex;gap:.25rem;align-items:center}
+.main-nav a{display:inline-flex;align-items:center;gap:.3rem;min-height:44px;padding:0 .9rem;font-weight:700;text-decoration:none;border-radius:var(--r-ui)}
+.main-nav a:hover{background:var(--main-overlay)}
+.main-nav .chev{width:16px;height:16px;transition:transform .2s var(--ease)}
+.has-sub{position:relative}
+.sub{position:absolute;top:calc(100% + 6px);left:0;min-width:300px;background:var(--white);border-radius:14px;box-shadow:var(--shadow-heavy),0 0 0 1px var(--hair);
+  padding:8px;display:grid!important;gap:2px;opacity:0;visibility:hidden;transform:translateY(6px);transition:opacity .2s var(--ease),transform .2s var(--ease),visibility .2s}
+.has-sub:hover .sub,.has-sub:focus-within .sub{opacity:1;visibility:visible;transform:none}
+.has-sub:hover .chev,.has-sub:focus-within .chev{transform:rotate(180deg)}
+.sub a{display:grid;gap:1px;padding:10px 12px;font-weight:700;border-radius:10px;min-height:0}
+.sub a small{font-weight:400;font-size:.8125rem;color:var(--grey)}
+.hd-ctas{display:flex;gap:.75rem;align-items:center}
+.menu-btn{display:none;margin-left:auto;width:48px;height:48px;border:0;border-radius:12px;background:transparent;cursor:pointer;color:var(--ink);align-items:center;justify-content:center}
+.menu-btn svg{width:26px;height:26px}
+.mnav{border-top:1px solid var(--hair);background:var(--white);padding-block:12px 20px}
+.mnav a{display:flex;align-items:center;min-height:48px;font-weight:700;text-decoration:none;border-bottom:1px solid var(--light)}
+.mnav .mnav-sub a{font-weight:400;padding-left:1rem;min-height:44px}
+.mnav .mnav-ctas{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:16px}
+.mnav .mnav-ctas a{border-bottom:0}
+
+/* ================================================================
+   OPTION A — Refined (blush-led, builds on current build)
+   ================================================================ */
+.opt-a .site-hd{background:var(--white)}
+.opt-a .hd-row{justify-content:space-between}
+.opt-a .main-nav{margin-right:auto;margin-left:1rem}
+
+.a-hero{position:relative;overflow:hidden;padding-block:clamp(40px,6vw,72px) clamp(56px,7vw,96px)}
+.a-wave{position:absolute;inset:0 0 auto 0;width:100%;height:54%;z-index:0}
+.a-hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(32px,5vw,72px);align-items:center}
+.a-hero-copy{display:grid;gap:1.5rem;justify-items:start;padding-top:clamp(24px,4vw,56px)}
+.a-hero-copy .eyebrow .fork-mark{width:34px}
+.a-h1{font-size:clamp(2.4rem,4.4vw,3.6rem);font-weight:700;line-height:1.08;letter-spacing:-.015em}
+.a-h1 em{font-style:italic;font-weight:600;background:linear-gradient(transparent 68%,var(--main-light) 68%,var(--main-light) 92%,transparent 92%);padding-inline:.06em}
+.cta-row{display:flex;flex-wrap:wrap;gap:.75rem 1.5rem;align-items:center}
+.trust{display:flex;flex-wrap:wrap;gap:.5rem 1.5rem;margin-top:.5rem}
+.trust li{display:inline-flex;align-items:center;gap:.45rem;padding-block:7px;font-weight:700;font-size:.9375rem;color:var(--accent-darker)}
+.trust .ico{width:18px;height:18px;color:var(--accent-dark)}
+.a-hero-media{position:relative;justify-self:center;width:min(100%,540px)}
+.a-circle{position:relative;aspect-ratio:1;border-radius:50%;overflow:hidden;border:10px solid var(--white);box-shadow:var(--shadow-heavy)}
+.a-circle img{width:100%;height:100%;object-fit:cover;object-position:62% 40%}
+.a-dot{position:absolute;border-radius:50%;z-index:-1}
+.a-dot.d1{width:34%;aspect-ratio:1;background:var(--accent);right:-6%;bottom:-4%}
+.a-dot.d2{width:12%;aspect-ratio:1;background:var(--main);left:2%;top:4%}
+
+.a-section{padding-block:clamp(56px,7vw,104px)}
+.a-tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.a-tile{display:flex;flex-direction:column;gap:.75rem;padding:28px 24px 20px;border-radius:var(--r-tile);background:var(--white);box-shadow:0 0 0 1px var(--hair);text-decoration:none;transition:transform .35s var(--ease),box-shadow .35s var(--ease)}
+.a-tile:hover{transform:translateY(-6px);box-shadow:0 0 0 1px var(--hair),var(--shadow-heavy)}
+.a-tile .disc{width:56px;height:56px;border-radius:50%;display:grid;place-items:center;background:var(--main-light);color:var(--main-darker);margin-bottom:.5rem}
+.a-tile:nth-child(even) .disc{background:var(--accent);color:var(--accent-darker)}
+.a-tile .disc .ico{width:28px;height:28px}
+.a-tile h3{font-size:1.3125rem;font-weight:600;line-height:1.25}
+.a-tile p{color:var(--grey);font-size:.975rem;flex:1}
+.a-tile .carrot{margin-top:.25rem;font-size:.9375rem}
+
+.a-about{position:relative;overflow:hidden;display:grid;grid-template-columns:1fr 1.05fr;gap:clamp(28px,4vw,56px);align-items:center;padding:32px;border-radius:var(--r-tile);background:var(--accent);box-shadow:var(--shadow-md)}
+.a-about .tree-mark{position:absolute;width:min(46%,440px);right:-7%;bottom:-18%;opacity:.3}
+.a-about-photo{border-radius:18px;overflow:hidden;aspect-ratio:4/5;position:relative;z-index:1}
+.a-about-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 25%}
+.a-about-copy{position:relative;z-index:1;display:grid;gap:1.25rem;justify-items:start;padding-block:16px;padding-right:clamp(0px,2vw,24px)}
+.a-about-copy .body-copy{color:var(--ink)}
+.a-about-copy .facts{border-color:rgba(58,81,69,.22)}
+.sig{font-family:var(--script);font-size:3.25rem;line-height:1;color:var(--main-darker);margin-block:-.2rem -.4rem}
+.sig small{display:block;font:500 .875rem/1.4 var(--sans);color:var(--grey);margin-top:.35rem}
+
+.a-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;position:relative;counter-reset:step}
+.a-steps::before{content:"";position:absolute;top:32px;left:calc(16.66% + 32px);right:calc(16.66% + 32px);border-top:2px dashed var(--main);z-index:0}
+.a-step{position:relative;z-index:1;display:grid;justify-items:center;text-align:center;gap:.75rem;padding-inline:8px}
+.a-step .num{width:64px;height:64px;border-radius:50%;display:grid;place-items:center;background:var(--white);box-shadow:0 0 0 2px var(--main);font:700 1.5rem/1 var(--serif)}
+.a-step:first-child .num{background:var(--main)}
+.a-step h3{font-size:1.25rem;font-weight:600}
+.a-step .dur{display:inline-block;padding:3px 10px;border-radius:999px;background:var(--main-light);font-size:.8125rem;font-weight:700;color:var(--grey)}
+.a-step p{color:var(--grey);max-width:28ch}
+.a-center{text-align:center;display:grid;justify-items:center;gap:.75rem;margin-bottom:48px}
+.a-center .eyebrow{justify-content:center}
+
+/* Free guide (lead magnet) — shared component, colored per option */
+.guide{display:grid;grid-template-columns:auto 1fr;gap:clamp(32px,5vw,72px);align-items:center;border-radius:var(--r-tile);padding:clamp(28px,5vw,56px) clamp(24px,5vw,64px)}
+.guide-cover{position:relative;width:210px;aspect-ratio:3/4;background:var(--white);border-radius:6px 14px 14px 6px;box-shadow:var(--shadow-heavy);padding:26px 22px 22px 30px;display:flex;flex-direction:column;gap:.5rem;transform:rotate(-4deg);overflow:hidden}
+.guide-cover::before{content:"";position:absolute;inset:0 auto 0 0;width:10px;background:var(--main)}
+.guide-cover .fork-mark{width:44px;margin-bottom:.25rem}
+.guide-cover .gc-k{font:700 .625rem/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--accent-darker)}
+.guide-cover .gc-t{font:italic 600 1.45rem/1.12 var(--serif)}
+.guide-cover .gc-b{margin-top:auto;font-family:var(--script);font-size:1.6rem;line-height:1;color:var(--main-darker)}
+.guide-copy{display:grid;gap:1rem;justify-items:start}
+.guide-copy h2{font-size:clamp(1.7rem,2.8vw,2.3rem);font-weight:700;line-height:1.15;max-width:22ch}
+.guide-form{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:.5rem .75rem;width:100%;max-width:520px;margin-top:.5rem}
+.guide-form label{grid-column:1/-1;font-weight:700;font-size:.875rem}
+.guide-form input{min-height:48px;padding:0 16px;border-radius:var(--r-btn);border:2px solid var(--hair-sage);background:var(--white);font:400 1rem var(--sans);color:var(--ink)}
+.guide-form input:focus-visible{outline:3px solid var(--accent-darker);outline-offset:1px;border-color:var(--accent-darker)}
+.guide-form .status{grid-column:1/-1;font-size:.875rem;font-weight:700;color:var(--accent-darker);min-height:1.3em}
+.opt-a .guide{background:var(--accent)}
+.opt-b .guide{background:var(--accent)}
+.opt-b .guide-cover::before{background:var(--accent-dark)}
+
+.a-quote-band{background:var(--main-light);position:relative;overflow:hidden}
+.a-quote{display:grid;grid-template-columns:auto 1fr;gap:1.5rem 2.5rem;align-items:start;max-width:980px;margin-inline:auto}
+.a-quote .qmark{font:700 7rem/.7 var(--serif);color:var(--main);margin-top:.15em}
+.a-quote blockquote{margin:0;font:italic 500 clamp(1.4rem,2.4vw,1.85rem)/1.45 var(--serif);text-wrap:pretty}
+.a-quote figcaption{margin-top:1.25rem;display:flex;flex-wrap:wrap;gap:.75rem;align-items:center;font-weight:700}
+.a-quote figcaption span{font-weight:400;color:var(--grey)}
+.a-quote-band .fork-mark{position:absolute;width:220px;right:-40px;top:-30px;opacity:.35;transform:rotate(18deg)}
+.a-carousel{position:relative;display:grid;grid-template-columns:48px minmax(0,1fr) 48px;grid-template-areas:"prev view next" ". dots .";column-gap:clamp(16px,3vw,40px);row-gap:28px;align-items:center;max-width:1120px;margin-inline:auto}
+.a-car-view{grid-area:view;overflow:hidden;touch-action:pan-y}
+.a-car-track{display:flex;transition:transform .55s var(--ease)}
+.a-car-track > .a-quote{flex:0 0 100%;max-width:none;margin:0;padding-inline:4px}
+.a-car-btn{width:48px;height:48px;border-radius:50%;border:0;background:var(--white);color:var(--ink);box-shadow:var(--shadow-md);display:grid;place-items:center;cursor:pointer;transition:background-color .2s var(--ease),transform .2s var(--ease)}
+.a-car-btn:hover{background:var(--main);transform:scale(1.06)}
+.a-car-btn:active{transform:scale(.95)}
+.a-car-btn svg{width:22px;height:22px}
+.a-car-prev{grid-area:prev}
+.a-car-prev svg{transform:rotate(180deg)}
+.a-car-next{grid-area:next}
+.a-car-dots{grid-area:dots;display:flex;justify-content:center;gap:2px}
+.a-car-dots button{width:28px;height:28px;padding:0;border:0;background:transparent;display:grid;place-items:center;cursor:pointer;border-radius:999px}
+.a-car-dots button::before{content:"";width:8px;height:8px;border-radius:999px;background:var(--main);transition:width .3s var(--ease),background-color .3s var(--ease)}
+.a-car-dots button[aria-current="true"]::before{width:24px;background:var(--main-darker)}
+
+.a-posts{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.a-post{display:flex;flex-direction:column;border-radius:var(--r-tile);overflow:hidden;background:var(--white);box-shadow:0 0 0 1px var(--hair);text-decoration:none;transition:transform .35s var(--ease),box-shadow .35s var(--ease)}
+.a-post:hover{transform:translateY(-6px);box-shadow:0 0 0 1px var(--hair),var(--shadow-heavy)}
+.a-post .art{aspect-ratio:16/9;position:relative;overflow:hidden;background:var(--main-light)}
+.a-post:nth-child(2) .art{background:var(--accent)}
+.a-post:nth-child(3) .art{background:var(--main)}
+.a-post .art .fork-mark{position:absolute;width:44%;left:50%;top:50%;transform:translate(-50%,-44%) rotate(-8deg);background:var(--white);opacity:.85}
+.a-post:nth-child(2) .art .fork-mark{transform:translate(-50%,-44%) rotate(10deg)}
+.a-post .art img{width:100%;height:100%;object-fit:cover}
+.a-post .txt{padding:22px 24px 24px;display:grid;gap:.6rem}
+.a-post .cat{font:700 .75rem/1 var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--accent-darker)}
+.a-post h3{font-size:1.25rem;font-weight:600;line-height:1.3}
+.a-post .meta{font-size:.875rem;color:var(--grey)}
+
+.a-cta{position:relative;overflow:hidden;display:grid;grid-template-columns:1.3fr .7fr;gap:2rem;align-items:center;padding:clamp(32px,5vw,56px);border-radius:var(--r-tile);background:var(--main)}
+.a-cta h2{font-size:clamp(2rem,3.4vw,2.9rem);font-weight:700;line-height:1.1}
+.a-cta p{margin-block:1rem 1.75rem;max-width:34em}
+.a-cta .cta-row{gap:.75rem}
+.a-cta-photo{justify-self:end;width:min(100%,300px);aspect-ratio:1;border-radius:50%;overflow:hidden;border:8px solid var(--main-light)}
+.a-cta-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 22%}
+
+.a-footer{background:var(--accent);margin-top:clamp(56px,7vw,104px);padding-block:64px 32px}
+.ft-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px}
+.ft-grid h4{font:700 .8125rem/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;margin-bottom:1rem;color:var(--accent-darker)}
+.ft-grid li + li{margin-top:.5rem}
+.ft-grid li{overflow-wrap:anywhere}
+.ft-grid a{text-decoration:none}
+.ft-grid a:hover{text-decoration:underline}
+.ft-blurb{margin-top:1rem;color:var(--grey);max-width:30ch}
+.ft-legal{margin-top:48px;padding-top:24px;border-top:1px solid var(--hair-sage);display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem;font-size:.875rem;color:var(--grey)}
+.ft-legal .crisis{max-width:62ch}
+
+/* ================================================================
+   OPTION B — Editorial (sage-led, audience chooser, script as the star)
+   ================================================================ */
+.opt-b .site-hd{background:var(--accent)}
+.opt-b .hd-row{display:grid;grid-template-columns:1fr auto 1fr;min-height:92px}
+.opt-b .main-nav{justify-self:start}
+.opt-b .main-nav ul{margin-left:-.9rem}
+.opt-b .main-nav a:hover{background:var(--accent-overlay)}
+.opt-b .logo{justify-self:center;align-items:center}
+.opt-b .hd-ctas{justify-self:end}
+
+.b-hero{background:var(--accent);position:relative;overflow:hidden;padding-block:clamp(32px,5vw,64px) clamp(64px,8vw,112px)}
+.b-hero-grid{display:grid;grid-template-columns:1.3fr .7fr;gap:clamp(32px,5vw,72px);align-items:center}
+.b-hero-copy{display:grid;gap:1.75rem;justify-items:start}
+.b-h1{font-weight:500;font-size:clamp(2.5rem,4.6vw,4.25rem);line-height:1.08;letter-spacing:-.02em;padding-bottom:.12em}
+.b-h1 .ln{display:block}
+.b-h1 .script{font-size:1.6em;color:var(--accent-darker);margin-inline:.04em .02em}
+.b-hero .lede{color:var(--ink);max-width:31em}
+.b-where{display:flex;align-items:center;gap:.5rem;font-size:.9375rem;font-weight:500;color:var(--accent-darker)}
+.b-where .ico{width:20px;height:20px}
+.b-arch-wrap{position:relative;justify-self:center;width:min(100%,460px);padding:0 18px 18px 0}
+.b-arch-wrap::before{content:"";position:absolute;inset:18px 0 0 18px;border:2px solid var(--main);border-radius:999px 999px 28px 28px}
+.b-arch{position:relative;aspect-ratio:4/5.1;border-radius:999px 999px 28px 28px;overflow:hidden}
+.b-arch img{width:100%;height:100%;object-fit:cover;object-position:60% 50%}
+.b-values{position:absolute;left:-12%;bottom:12%;background:var(--white);border-radius:18px;padding:16px 20px;box-shadow:var(--shadow-heavy);display:grid;gap:.4rem}
+.b-values-list{display:grid;gap:.4rem}
+.b-values li{display:flex;align-items:center;gap:.5rem;font-weight:700;font-size:.9375rem}
+.b-values li::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--main-darker)}
+.b-sprig{position:absolute;right:-60px;top:-40px;width:260px;opacity:.55;background:var(--white);transform:rotate(12deg)}
+
+.b-section{padding-block:clamp(64px,8vw,120px)}
+.b-kicker{font-family:var(--script);font-size:2.4rem;line-height:1;color:var(--main-darker);display:block;margin-bottom:.1rem}
+
+/* chooser */
+.b-choose{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(32px,5vw,72px);align-items:start}
+.b-choose-intro{display:grid;gap:1.25rem}
+.b-tabs{display:grid;margin-top:1rem;border-top:1px solid var(--hair)}
+.b-tab{display:flex;align-items:center;justify-content:space-between;gap:1rem;width:100%;min-height:72px;padding:14px 16px 14px 4px;border:0;border-bottom:1px solid var(--hair);background:transparent;
+  font:500 clamp(1.15rem,1.8vw,1.375rem)/1.3 var(--serif);text-align:left;color:var(--grey);cursor:pointer;transition:color .2s var(--ease),padding .3s var(--ease),background-color .2s}
+.b-tab .arr{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;flex-shrink:0;box-shadow:inset 0 0 0 1.5px var(--hair);transition:background-color .25s var(--ease),box-shadow .25s,transform .3s var(--ease)}
+.b-tab .arr svg{width:18px;height:18px}
+.b-tab:hover{color:var(--ink)}
+.b-tab[aria-selected="true"]{color:var(--ink);padding-left:16px;background:var(--main-light);border-radius:14px;border-bottom-color:transparent}
+.b-tab[aria-selected="true"] .arr{background:var(--main);box-shadow:none;transform:rotate(-45deg)}
+.b-panel{border-radius:var(--r-tile);background:var(--main-light);padding:clamp(28px,4vw,48px);display:grid;gap:1.25rem;position:relative;overflow:hidden;min-height:100%}
+.b-panel[hidden]{display:none}
+.b-panel h3{font-size:clamp(1.5rem,2.4vw,2rem);font-weight:600;line-height:1.2;max-width:20ch}
+.b-panel p{max-width:36em}
+.b-panel .svc{display:grid;gap:0;border-top:1px solid rgba(10,10,10,.12)}
+.b-panel .svc a{display:grid;grid-template-columns:minmax(0,1fr) auto 18px;align-items:center;column-gap:1.25rem;min-height:56px;padding-block:8px;border-bottom:1px solid rgba(10,10,10,.12);font-weight:700;text-decoration:none}
+.b-panel .svc a small{font-weight:400;color:var(--grey);font-size:.875rem;text-align:right}
+.b-panel .svc a svg{width:18px;height:18px;transition:transform .25s var(--ease);flex-shrink:0}
+.b-panel .svc a:hover svg{transform:translateX(4px)}
+.b-panel .fork-mark{position:absolute;width:160px;right:-30px;bottom:-40px;background:var(--main);opacity:.45;transform:rotate(-14deg)}
+.b-panel > *:not(.fork-mark){position:relative}
+.b-panel .cta-row{margin-top:.5rem}
+
+/* philosophy */
+.b-phil{background:var(--accent-darker);color:var(--white);position:relative;overflow:hidden}
+.b-phil .tree-mark{position:absolute;width:min(40vw,520px);right:-6%;top:50%;transform:translateY(-50%);background:var(--white);opacity:.07}
+.b-phil h2{color:var(--white);font-weight:500;font-size:clamp(2.2rem,4.4vw,3.75rem);line-height:1.08;letter-spacing:-.015em;max-width:15ch}
+.b-phil h2 .script{font-size:1.5em;color:var(--main)}
+.b-phil .eyebrow{color:var(--accent);margin-bottom:1.25rem}
+.b-phil .sec-head{--cg:40px;position:relative;margin-bottom:0}
+.b-phil .sec-head p{color:var(--accent);font-size:1.125rem}
+.b-principles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:40px;margin-top:clamp(40px,5vw,72px);position:relative}
+.b-principles li{border-top:1px solid rgba(221,230,220,.35);padding-top:1.5rem;display:grid;gap:.6rem}
+.b-principles h3{color:var(--white);font-size:1.5rem;font-weight:500}
+.b-principles p{color:var(--accent)}
+.b-principles .ico{width:32px;height:32px;color:var(--main);margin-bottom:.4rem}
+
+/* about */
+.b-about{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(40px,6vw,96px);align-items:center}
+.b-portrait{position:relative;padding:0 0 28px 28px}
+.b-portrait::before{content:"";position:absolute;left:0;bottom:0;width:72%;height:70%;background:var(--main-light);border-radius:var(--r-tile)}
+.b-portrait .frame{position:relative;border-radius:var(--r-tile);overflow:hidden;aspect-ratio:4/5}
+.b-portrait img{width:100%;height:100%;object-fit:cover;object-position:50% 20%}
+.b-about-copy{display:grid;gap:1.4rem;justify-items:start}
+.b-pull{font:italic 400 clamp(1.35rem,2.2vw,1.7rem)/1.45 var(--serif);color:var(--ink);padding-left:1.25rem;border-left:3px solid var(--main);max-width:28em}
+.facts{display:grid;grid-template-columns:repeat(3,auto);gap:1.5rem 2.5rem;padding-block:1.25rem;border-block:1px solid var(--hair);width:100%}
+.facts dt{font:700 .75rem/1.2 var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--accent-darker);margin-bottom:.35rem}
+.facts dd{margin:0;font-family:var(--serif);font-size:1.0625rem;font-weight:500}
+.b-signoff{display:flex;flex-wrap:wrap;align-items:center;gap:1rem 2rem}
+.b-signoff .sig{margin:0}
+
+/* process */
+.b-process{background:var(--light);padding-block:clamp(48px,5.5vw,80px)}
+.b-process .sec-head{margin-bottom:clamp(28px,3vw,40px)}
+.b-process .b-step{padding:26px 24px;gap:.6rem}
+.b-steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+.b-step{background:var(--white);border-radius:var(--r-tile);padding:32px 28px;display:grid;gap:.75rem;align-content:start;height:100%}
+.b-step .n{font:italic 500 3.5rem/1 var(--serif);color:var(--main-darker)}
+.b-step .when{font:700 .75rem/1 var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--accent-darker)}
+.b-step h3{font-size:1.375rem;font-weight:600}
+.b-step p{color:var(--grey)}
+.b-proc-cta{display:flex;justify-content:center;margin-top:clamp(28px,3vw,40px)}
+
+
+/* testimonial */
+.b-testi{display:grid;grid-template-columns:auto 1fr;gap:2rem 3rem;align-items:start;max-width:1040px}
+.b-testi .qm{width:88px;height:88px;border-radius:50%;background:var(--main-light);display:grid;place-items:center;font:700 4.5rem/1 var(--serif);color:var(--main-darker);padding-top:.35em}
+.b-testi blockquote{margin:0;font:400 clamp(1.5rem,2.8vw,2.25rem)/1.35 var(--serif);letter-spacing:-.005em;text-wrap:pretty}
+.b-testi figcaption{margin-top:1.5rem;display:flex;flex-wrap:wrap;gap:.75rem;align-items:center;font-weight:700}
+.b-testi figcaption span{font-weight:400;color:var(--grey)}
+
+/* resources */
+
+/* cta + footer */
+.b-cta{background:var(--main-light);padding-block:clamp(64px,8vw,112px);position:relative;overflow:hidden}
+.b-cta-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:2rem 4rem;align-items:center}
+.b-cta h2{font-weight:500;font-size:clamp(2.2rem,4.6vw,3.9rem);line-height:1.05;letter-spacing:-.02em}
+.b-cta h2{line-height:1.12}
+.b-cta h2 .script{font-size:1.5em;color:var(--accent-darker)}
+.b-cta-copy{display:grid;gap:1.5rem;justify-items:start}
+.b-cta-card{background:var(--white);border-radius:var(--r-tile);padding:28px;display:grid;gap:1rem;box-shadow:var(--shadow-lg)}
+.b-cta-card .who{display:flex;gap:1rem;align-items:center}
+.b-cta-card .who img{width:64px;height:64px;border-radius:50%;object-fit:cover;object-position:50% 20%}
+.b-cta-card .who b{display:block;font-family:var(--serif);font-size:1.125rem}
+.b-cta-card .who span{font-size:.875rem;color:var(--grey)}
+.b-cta-card li{display:flex;gap:.6rem;align-items:flex-start;color:var(--grey)}
+.b-cta-card li .ico{width:20px;height:20px;color:var(--accent-dark);margin-top:3px}
+.b-cta-card ul{display:grid;gap:.6rem}
+
+.b-footer{background:var(--accent-darker);color:var(--accent);padding-block:72px 32px;position:relative;overflow:hidden}
+.b-footer .tree-mark{position:absolute;width:420px;left:-120px;bottom:-160px;background:var(--white);opacity:.05}
+.b-footer .ft-grid{position:relative}
+.b-footer .ft-grid h4{color:var(--main)}
+.b-footer a{color:var(--white)}
+.b-footer .logo{color:var(--white)}
+.b-footer .ft-blurb{color:var(--accent)}
+.b-footer .ft-legal{border-top-color:rgba(221,230,220,.25);color:var(--accent);position:relative}
+
+/* ---------- Load motion (hero only) ---------- */
+@keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+@keyframes scaleIn{from{opacity:0;transform:scale(.96)}to{opacity:1;transform:none}}
+.opt:not([hidden]) .rise{animation:rise .8s var(--ease) both}
+.opt:not([hidden]) .rise.d1{animation-delay:.08s}
+.opt:not([hidden]) .rise.d2{animation-delay:.16s}
+.opt:not([hidden]) .rise.d3{animation-delay:.24s}
+.opt:not([hidden]) .scale-in{animation:scaleIn 1s var(--ease-bounce) .1s both}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+}
+
+/* ---------- Presentation switcher (not part of the site) ---------- */
+.switcher{position:fixed;left:50%;bottom:16px;transform:translateX(-50%);z-index:100;display:flex;align-items:center;gap:6px;padding:6px 6px 6px 16px;
+  background:#1B1B1B;color:#fff;border-radius:999px;box-shadow:0 12px 32px rgba(0,0,0,.28);max-width:calc(100vw - 32px)}
+.switcher .sw-label{font:700 .6875rem/1.2 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:#BDBDBD;margin-right:6px;white-space:nowrap}
+.switcher .sw-note{font-size:.8125rem;color:#D8D8D8;margin-right:10px;max-width:250px;line-height:1.3}
+.switcher button{min-height:44px;padding:0 18px;border:0;border-radius:999px;background:transparent;color:#fff;font:700 .9375rem/1 var(--sans);cursor:pointer;white-space:nowrap;transition:background-color .2s}
+.switcher button:hover{background:rgba(255,255,255,.1)}
+.switcher button[aria-pressed="true"]{background:var(--main);color:var(--ink)}
+.switcher button b{font-family:var(--serif);margin-right:4px}
+.switcher :focus-visible{outline-color:var(--main)}
+
+/* ---------- Responsive ---------- */
+@media (max-width:1080px){
+  .a-tiles{grid-template-columns:repeat(2,1fr)}
+  .hd-row{gap:1rem}
+  .main-nav a{padding:0 .6rem}
+}
+@media (max-width:960px){
+  .main-nav,.hd-ctas{display:none}
+  .menu-btn{display:inline-flex}
+  .opt-b .hd-row{grid-template-columns:1fr auto;min-height:80px}
+  .opt-b .logo{justify-self:start;align-items:flex-start}
+  .a-hero-grid,.b-hero-grid,.a-about,.b-choose,.b-about,.b-cta-grid,.a-cta{grid-template-columns:1fr}
+  .sec-head{grid-template-columns:1fr}
+  .sec-head > :first-child,.sec-head > :last-child,.sec-head.cols-4 > :first-child,.sec-head.cols-4 > :last-child{grid-column:auto}
+  .guide{grid-template-columns:1fr;justify-items:start}
+  .guide-cover{width:170px}
+  .a-hero-media{width:min(100%,440px)}
+  .b-arch-wrap{width:min(100%,400px)}
+  .b-values{left:-4%}
+  .a-cta-photo{display:none}
+  .b-principles,.b-steps{grid-template-columns:1fr;gap:28px}
+  .ft-grid{grid-template-columns:1fr 1fr}
+  .a-about{padding:20px}
+  .switcher .sw-note{display:none}
+}
+@media (max-width:720px){
+  .a-steps{grid-template-columns:1fr;gap:28px}
+  .a-steps::before{top:32px;bottom:32px;left:31px;right:auto;border-top:0;border-left:2px dashed var(--main)}
+  .a-step{grid-template-columns:64px 1fr;justify-items:start;text-align:left;column-gap:1.25rem;padding:0}
+  .a-step .num{grid-row:span 2}
+  .a-posts{grid-template-columns:1fr}
+  .a-quote,.b-testi{grid-template-columns:1fr;gap:1rem}
+  .a-quote .qmark{font-size:5rem}
+  .a-carousel{grid-template-areas:"view view view" "prev dots next";column-gap:12px;row-gap:20px}
+  .b-testi .qm{width:64px;height:64px;font-size:3.25rem}
+  .facts{grid-template-columns:1fr 1fr}
+}
+@media (max-width:560px){
+  body{font-size:16px}
+  .a-tiles{grid-template-columns:1fr}
+  .ft-grid{grid-template-columns:1fr}
+  .b-values{position:relative;left:auto;bottom:auto;margin:-48px 0 0 16px;width:max-content;max-width:90%}
+  .cta-row .btn{width:100%}
+  .switcher{padding-left:12px}
+  .switcher .sw-label{display:none}
+  .switcher button{padding:0 14px}
+  .b-sprig{display:none}
+  .guide-form{grid-template-columns:1fr}
+  .b-panel .svc a{grid-template-columns:minmax(0,1fr) 18px;row-gap:2px}
+  .b-panel .svc a small{grid-column:1;grid-row:2;text-align:left}
+  .b-panel .svc a svg{grid-column:2;grid-row:1 / 3}
+}
+</style>
+
+<!-- ============================ SVG sprite ============================ -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-chev" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-leaf" viewBox="0 0 24 24"><path d="M5 19c0-8.3 5.7-14 14-14 0 8.3-5.7 14-14 14Z"/><path d="M5 19l8-8"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/></symbol>
+  <symbol id="i-video" viewBox="0 0 24 24"><rect x="3" y="6" width="13" height="12" rx="3"/><path d="m16 10.5 5-3v9l-5-3"/></symbol>
+  <symbol id="i-family" viewBox="0 0 24 24"><circle cx="8" cy="5" r="2.5"/><path d="M4 21v-7a4 4 0 0 1 8 0v7"/><circle cx="17.5" cy="11" r="2"/><path d="M14.5 21v-3.5a3 3 0 0 1 6 0V21"/></symbol>
+  <symbol id="i-sprout" viewBox="0 0 24 24"><path d="M12 21v-9"/><path d="M12 12c0-4 2.5-6.5 7-6.5 0 4-2.5 6.5-7 6.5Z"/><path d="M12 14.5c0-3.3-2-5.5-6.5-5.5 0 3.3 2 5.5 6.5 5.5Z"/></symbol>
+  <symbol id="i-plate" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="4.5"/></symbol>
+  <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20s-7.5-4.6-7.5-10.2A4.3 4.3 0 0 1 12 7.2a4.3 4.3 0 0 1 7.5 2.6C19.5 15.4 12 20 12 20Z"/></symbol>
+  <symbol id="i-scale-off" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="4"/><path d="M8.5 9.5a4.5 4.5 0 0 1 7 0"/><path d="M4 20 20 4"/></symbol>
+  <symbol id="i-book" viewBox="0 0 24 24"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5v-15Z"/><path d="M4 20.5A2.5 2.5 0 0 1 6.5 18H20v3H6.5"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m8 12.5 2.8 2.8L16.5 9.5"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+  <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+</svg>
+
+<!-- =================================================================
+     OPTION A — REFINED
+     ================================================================= -->
+<div class="opt opt-a" id="option-a" data-option="a">
+  <header class="site-hd">
+    <div class="wrap hd-row">
+      <a class="logo" href="#" aria-label="Life with Substance home"><span class="l1">Life with</span><span class="l2">Substance</span></a>
+      <nav class="main-nav" aria-label="Primary">
+        <ul>
+          <li class="has-sub">
+            <a href="#" aria-haspopup="true">Services <svg class="ico chev"><use href="#i-chev"/></svg></a>
+            <ul class="sub">
+              <li><a href="#">Pediatrics<small>Picky eating, ARFID &amp; feeding</small></a></li>
+              <li><a href="#">Eating Disorder Recovery<small>Outpatient nutrition therapy</small></a></li>
+              <li><a href="#">Disordered Eating / Chronic Dieting<small>Step off the diet cycle</small></a></li>
+              <li><a href="#">Body Image Healing<small>Weight-inclusive support</small></a></li>
+            </ul>
+          </li>
+          <li><a href="#">Resources</a></li>
+          <li><a href="#">About</a></li>
+        </ul>
+      </nav>
+      <div class="hd-ctas">
+        <a class="btn btn-accent btn-sm" href="#">Portal Login</a>
+        <a class="btn btn-main btn-sm" href="#">Book a Free Call</a>
+      </div>
+      <button class="menu-btn" type="button" aria-expanded="false" aria-controls="mnav-a" aria-label="Open menu"><svg class="ico"><use href="#i-menu"/></svg></button>
+    </div>
+    <div class="mnav" id="mnav-a" hidden>
+      <div class="wrap">
+        <a href="#">Services</a>
+        <div class="mnav-sub"><a href="#">Pediatrics</a><a href="#">Eating Disorder Recovery</a><a href="#">Disordered Eating / Chronic Dieting</a><a href="#">Body Image Healing</a></div>
+        <a href="#">Resources</a><a href="#">About</a>
+        <div class="mnav-ctas"><a class="btn btn-accent" href="#">Portal Login</a><a class="btn btn-main" href="#">Book a Free Call</a></div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="a-hero" aria-labelledby="a-h1">
+      <svg class="a-wave" viewBox="0 0 1440 560" preserveAspectRatio="none" aria-hidden="true">
+        <path fill="#F5E4E0" d="M0 0H1440V430C1330 404 1210 330 1060 222C890 100 640 58 400 84C250 100 120 136 0 168Z"/>
+      </svg>
+      <div class="wrap a-hero-grid">
+        <div class="a-hero-copy">
+          <p class="eyebrow rise"><span class="fork-mark" aria-hidden="true"></span>Compassionate nutrition therapy in IA, IL &amp; WI</p>
+          <h1 class="a-h1 rise d1" id="a-h1">End mealtime stress &amp; raise <em>confident eaters</em></h1>
+          <p class="lede rise d2">As a registered dietitian, I help parents navigate picky eating, ARFID, and feeding challenges, so kids grow up with a lifelong, peaceful relationship with food.</p>
+          <div class="cta-row rise d3">
+            <a class="btn btn-main btn-lg" href="#">Schedule Your Free Discovery Call</a>
+            <a class="carrot" href="#a-services"><span>Explore services</span><svg class="ico"><use href="#i-arrow"/></svg></a>
+          </div>
+          <ul class="trust rise d3" aria-label="My approach">
+            <li><svg class="ico" aria-hidden="true"><use href="#i-leaf"/></svg>HAES-informed</li>
+            <li><svg class="ico" aria-hidden="true"><use href="#i-leaf"/></svg>Weight-inclusive</li>
+            <li><svg class="ico" aria-hidden="true"><use href="#i-leaf"/></svg>Evidence-based</li>
+          </ul>
+        </div>
+        <div class="a-hero-media scale-in">
+          <span class="a-dot d1" aria-hidden="true"></span><span class="a-dot d2" aria-hidden="true"></span>
+          <div class="a-circle"><img src="img/kitchen-kids.webp" width="1400" height="1050" alt="Christine laughing with three young children as they bake together at a kitchen island"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="a-section" id="a-services" aria-labelledby="a-svc-h" style="padding-top:0">
+      <div class="wrap">
+        <div class="sec-head cols-4">
+          <div><p class="eyebrow">Areas of specialty</p><h2 class="h2" id="a-svc-h">How I can help</h2></div>
+          <p class="body-copy">Every body, every age, and every relationship with food is different. Care is individualized, collaborative, and free of food rules, whether we’re working on a toddler’s plate or an adult’s recovery.</p>
+        </div>
+        <div class="a-tiles">
+          <a class="a-tile" href="#">
+            <span class="disc"><svg class="ico" aria-hidden="true"><use href="#i-family"/></svg></span>
+            <h3>Pediatrics</h3>
+            <p>Picky eating, ARFID, food allergies and intolerances, tube feeding support, and more, with parents as partners.</p>
+            <span class="carrot"><span>Learn more</span><svg class="ico"><use href="#i-arrow"/></svg></span>
+          </a>
+          <a class="a-tile" href="#">
+            <span class="disc"><svg class="ico" aria-hidden="true"><use href="#i-sprout"/></svg></span>
+            <h3>Eating Disorder Recovery</h3>
+            <p>Eating disorders are serious but treatable. Together we’ll work toward intuitive eating and healing your relationship with food and body.</p>
+            <span class="carrot"><span>Learn more</span><svg class="ico"><use href="#i-arrow"/></svg></span>
+          </a>
+          <a class="a-tile" href="#">
+            <span class="disc"><svg class="ico" aria-hidden="true"><use href="#i-plate"/></svg></span>
+            <h3>Disordered Eating &amp; Chronic Dieting</h3>
+            <p>Step off the diet cycle, rebuild trust with hunger and fullness, and eat without the rules.</p>
+            <span class="carrot"><span>Learn more</span><svg class="ico"><use href="#i-arrow"/></svg></span>
+          </a>
+          <a class="a-tile" href="#">
+            <span class="disc"><svg class="ico" aria-hidden="true"><use href="#i-heart"/></svg></span>
+            <h3>Body Image Healing</h3>
+            <p>All bodies are worthy of respect, care, and acceptance exactly as they are. We’ll heal from the inside out.</p>
+            <span class="carrot"><span>Learn more</span><svg class="ico"><use href="#i-arrow"/></svg></span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="a-about-h">
+      <div class="wrap">
+        <div class="a-about">
+          <span class="tree-mark" aria-hidden="true"></span>
+          <div class="a-about-photo"><img src="img/christine-denim.webp" width="1000" height="1333" loading="lazy" alt="Christine, registered dietitian, smiling on a cream sofa in a denim blouse"></div>
+          <div class="a-about-copy">
+            <p class="eyebrow">Meet your dietitian</p>
+            <h2 class="h2" id="a-about-h">Hey there! I’m Christine</h2>
+            <p class="body-copy">I’m a Registered Dietitian specializing in eating disorders and pediatric nutrition in Dubuque and throughout Iowa, Illinois, and Wisconsin. I work with children, teens, and adults navigating everything from selective eating and nutrition concerns to ARFID, eating disorders, and challenges with food and body image.</p>
+            <p class="body-copy">I’ve practiced for over 15 years in Eastern Iowa, and I’m a mom to three, so I know mealtime stress firsthand. Nutrition doesn’t have to look perfect. My kids eat mac and cheese and ice cream too!</p>
+            <dl class="facts">
+              <div><dt>Credentials</dt><dd>RD, LD</dd></div>
+              <div><dt>Experience</dt><dd>15+ years</dd></div>
+              <div><dt>Family</dt><dd>Mom of three</dd></div>
+            </dl>
+            <a class="btn btn-soft" href="#">More About Me</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="a-section" aria-labelledby="a-steps-h">
+      <div class="wrap">
+        <div class="a-center">
+          <p class="eyebrow">Getting started</p>
+          <h2 class="h2" id="a-steps-h">Your first step is a conversation</h2>
+        </div>
+        <ol class="a-steps">
+          <li class="a-step"><span class="num">1</span><h3>Free discovery call</h3><span class="dur">20 minutes · Free</span><p>Ask questions, share your goals, and talk through what you hope to get from our work together.</p></li>
+          <li class="a-step"><span class="num">2</span><h3>Initial assessment</h3><span class="dur">60–90 minutes</span><p>An in-depth look at health history, your relationship with food, and your nutritional needs, plus clear next steps.</p></li>
+          <li class="a-step"><span class="num">3</span><h3>Follow-up sessions</h3><span class="dur">30–40 minutes</span><p>Build skills and strategies, review progress, answer questions, and set new goals at each visit.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="a-section a-quote-band">
+      <span class="fork-mark" aria-hidden="true"></span>
+      <div class="wrap">
+        <!-- Review carousel: each <figure> is one slide; feed reviews in as additional figures -->
+        <div class="a-carousel" data-carousel role="region" aria-roledescription="carousel" aria-label="Client reviews">
+          <button class="a-car-btn a-car-prev" type="button" aria-label="Previous review"><svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+          <div class="a-car-view">
+            <div class="a-car-track" aria-live="polite">
+              <figure class="a-quote">
+                <span class="qmark" aria-hidden="true">“</span>
+                <div>
+                  <blockquote>Dinner used to end in tears, usually mine. Christine helped us take the pressure off, and now my son is trying new foods on his own terms. Our table finally feels like a family table again.</blockquote>
+                  <figcaption>Parent of a 6-year-old <span>Picky eating</span> <span class="ph-tag">Placeholder quote</span></figcaption>
+                </div>
+              </figure>
+              <figure class="a-quote">
+                <span class="qmark" aria-hidden="true">“</span>
+                <div>
+                  <blockquote>Our daughter was diagnosed with ARFID and every meal felt like a negotiation. Christine gave us a plan that was gentle and practical, and her list of safe foods has more than doubled.</blockquote>
+                  <figcaption>Parent of a 9-year-old <span>ARFID support</span> <span class="ph-tag">Placeholder quote</span></figcaption>
+                </div>
+              </figure>
+              <figure class="a-quote">
+                <span class="qmark" aria-hidden="true">“</span>
+                <div>
+                  <blockquote>I spent twenty years on and off diets. Working with Christine, I finally stopped counting and started trusting my body again. Food feels like food now, not a test I keep failing.</blockquote>
+                  <figcaption>Adult client <span>Chronic dieting</span> <span class="ph-tag">Placeholder quote</span></figcaption>
+                </div>
+              </figure>
+              <figure class="a-quote">
+                <span class="qmark" aria-hidden="true">“</span>
+                <div>
+                  <blockquote>I was nervous before every appointment, but Christine made recovery feel safe. She never judged me and helped me see food as fuel for the life I actually want to live.</blockquote>
+                  <figcaption>Teen client <span>Eating disorder recovery</span> <span class="ph-tag">Placeholder quote</span></figcaption>
+                </div>
+              </figure>
+              <figure class="a-quote">
+                <span class="qmark" aria-hidden="true">“</span>
+                <div>
+                  <blockquote>Starting solids with our first baby was so overwhelming. Christine’s advice was practical and evidence-based, and she never once made me feel like I was doing it wrong.</blockquote>
+                  <figcaption>Parent of an infant <span>Pediatrics</span> <span class="ph-tag">Placeholder quote</span></figcaption>
+                </div>
+              </figure>
+            </div>
+          </div>
+          <button class="a-car-btn a-car-next" type="button" aria-label="Next review"><svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+          <div class="a-car-dots" role="group" aria-label="Choose a review"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="a-section" aria-labelledby="a-guide-h">
+      <div class="wrap">
+        <div class="guide">
+          <div class="guide-cover" aria-hidden="true"><span class="fork-mark"></span><span class="gc-k">Free guide</span><span class="gc-t">The Ultimate Picky Eating Guide</span><span class="gc-b">Life with Substance</span></div>
+          <div class="guide-copy">
+            <p class="eyebrow">Free download</p>
+            <h2 id="a-guide-h">Grab your free Ultimate Picky Eating Guide</h2>
+            <p class="body-copy">End mealtime stress with simple strategies to feed your picky eater with confidence.</p>
+            <form class="guide-form" novalidate>
+              <label for="guide-email-a">Email address</label>
+              <input id="guide-email-a" name="email" type="email" autocomplete="email" placeholder="you@example.com">
+              <button class="btn btn-main" type="submit">Send Me the Guide</button>
+              <p class="status" role="status" aria-live="polite"></p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="a-section" style="padding-top:0" aria-labelledby="a-res-h">
+      <div class="wrap">
+        <div class="sec-head">
+          <div><p class="eyebrow">Resources</p><h2 class="h2" id="a-res-h">Fresh from the blog</h2></div>
+          <div class="sec-head-aside"><p class="body-copy">Practical, shame-free guidance for feeding kids, navigating picky eating, and stepping away from diet culture.</p><a class="carrot" href="#"><span>Browse all resources</span><svg class="ico"><use href="#i-arrow"/></svg></a></div>
+        </div>
+        <div class="a-posts">
+          <a class="a-post" href="#"><div class="art"><span class="fork-mark" aria-hidden="true"></span></div><div class="txt"><span class="cat">Picky eating</span><h3>Is your child a picky eater or suffering from ARFID?</h3><span class="meta">by Christine</span></div></a>
+          <a class="a-post" href="#"><div class="art"><span class="fork-mark" aria-hidden="true"></span></div><div class="txt"><span class="cat">Diet culture</span><h3>Helping your teen go from food obsession to food freedom</h3><span class="meta">by Christine</span></div></a>
+          <a class="a-post" href="#"><div class="art"><span class="fork-mark" aria-hidden="true"></span></div><div class="txt"><span class="cat">Feeding kids</span><h3>What’s your feeding style? Redefining your role at the table</h3><span class="meta">by Christine</span></div></a>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="a-cta-h">
+      <div class="wrap">
+        <div class="a-cta">
+          <div>
+            <h2 id="a-cta-h">Ready for calmer mealtimes?</h2>
+            <p>Book a free 20-minute discovery call to talk through what’s happening at your table. In network with some insurance plans; HSA/FSA and Superbills welcome.</p>
+            <div class="cta-row"><a class="btn btn-white btn-lg" href="#">Schedule Your Free Discovery Call</a></div>
+          </div>
+          <div class="a-cta-photo"><img src="img/christine-mug.webp" width="1000" height="1333" loading="lazy" alt="Christine smiling in her kitchen holding a coffee mug"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="a-footer">
+    <div class="wrap">
+      <div class="ft-grid">
+        <div><a class="logo" href="#"><span class="l1">Life with</span><span class="l2">Substance</span></a><p class="ft-blurb">Pediatric &amp; eating disorder dietitian. Compassionate, weight-inclusive nutrition therapy for kids, teens, and adults.</p></div>
+        <div><h4>Services</h4><ul><li><a href="#">Pediatrics</a></li><li><a href="#">Eating Disorder Recovery</a></li><li><a href="#">Disordered Eating / Chronic Dieting</a></li><li><a href="#">Body Image Healing</a></li></ul></div>
+        <div><h4>Practice</h4><ul><li><a href="#">About</a></li><li><a href="#">Blog &amp; Resources</a></li><li><a href="#">Shop</a></li><li><a href="#">Contact</a></li><li><a href="#">Client Portal Login</a></li></ul></div>
+        <div><h4>Get in touch</h4><ul><li><a href="mailto:christine@lifewithsubstance.com">christine@lifewithsubstance.com</a></li><li><a href="tel:+15633417787">(563) 341-7787</a></li><li>Dubuque, Iowa · Virtual telehealth in IA, IL &amp; WI</li><li><a href="#">Instagram</a> · <a href="#">Facebook</a> · <a href="#">Pinterest</a></li></ul></div>
+      </div>
+      <div class="ft-legal">
+        <p class="crisis">If you’re in crisis, call or text 988 to reach the Suicide &amp; Crisis Lifeline. Content on this site is educational and isn’t a substitute for individualized care.</p>
+        <p>© 2026 Life with Substance, LLC · <a href="#">Privacy Policy</a></p>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<!-- =================================================================
+     OPTION B — EDITORIAL
+     ================================================================= -->
+<div class="opt opt-b" id="option-b" data-option="b" hidden>
+  <header class="site-hd">
+    <div class="wrap hd-row">
+      <nav class="main-nav" aria-label="Primary">
+        <ul>
+          <li class="has-sub">
+            <a href="#" aria-haspopup="true">Services <svg class="ico chev"><use href="#i-chev"/></svg></a>
+            <ul class="sub">
+              <li><a href="#">Pediatrics<small>Picky eating, ARFID &amp; feeding</small></a></li>
+              <li><a href="#">Eating Disorder Recovery<small>Outpatient nutrition therapy</small></a></li>
+              <li><a href="#">Disordered Eating / Chronic Dieting<small>Step off the diet cycle</small></a></li>
+              <li><a href="#">Body Image Healing<small>Weight-inclusive support</small></a></li>
+            </ul>
+          </li>
+          <li><a href="#">Resources</a></li>
+          <li><a href="#">About</a></li>
+        </ul>
+      </nav>
+      <a class="logo" href="#" aria-label="Life with Substance home"><span class="l1">Life with</span><span class="l2">Substance</span></a>
+      <div class="hd-ctas">
+        <a class="btn btn-accent btn-sm" href="#">Portal Login</a>
+        <a class="btn btn-main btn-sm" href="#">Book a Free Call</a>
+      </div>
+      <button class="menu-btn" type="button" aria-expanded="false" aria-controls="mnav-b" aria-label="Open menu"><svg class="ico"><use href="#i-menu"/></svg></button>
+    </div>
+    <div class="mnav" id="mnav-b" hidden>
+      <div class="wrap">
+        <a href="#">Services</a>
+        <div class="mnav-sub"><a href="#">Pediatrics</a><a href="#">Eating Disorder Recovery</a><a href="#">Disordered Eating / Chronic Dieting</a><a href="#">Body Image Healing</a></div>
+        <a href="#">Resources</a><a href="#">About</a>
+        <div class="mnav-ctas"><a class="btn btn-accent" href="#">Portal Login</a><a class="btn btn-main" href="#">Book a Free Call</a></div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="b-hero" aria-labelledby="b-h1">
+      <span class="fork-mark b-sprig" aria-hidden="true"></span>
+      <div class="wrap b-hero-grid">
+        <div class="b-hero-copy">
+          <p class="eyebrow rise">Pediatric &amp; Eating Disorder Dietitian · Dubuque, Iowa</p>
+          <h1 class="b-h1 rise d1" id="b-h1"><span class="ln">Nourish your body.</span><span class="ln">Make <span class="script">peace</span> with food.</span></h1>
+          <p class="lede rise d2">Compassionate nutrition therapy for kids, teens, and adults, from picky eating and ARFID to eating disorder recovery and body image healing.</p>
+          <div class="cta-row rise d3">
+            <a class="btn btn-main btn-lg" href="#">Schedule Your Free Discovery Call</a>
+            <a class="btn btn-accent btn-lg" href="#b-choose">Find Your Starting Point</a>
+          </div>
+          <p class="b-where rise d3"><svg class="ico" aria-hidden="true"><use href="#i-video"/></svg>Virtual telehealth appointments across Iowa, Illinois &amp; Wisconsin</p>
+        </div>
+        <div class="b-arch-wrap scale-in">
+          <div class="b-arch"><img src="img/kitchen-kids.webp" width="1400" height="1050" alt="Christine laughing with three young children as they bake together at a kitchen island"></div>
+          <div class="b-values">
+            <ul class="b-values-list" aria-label="My approach"><li>HAES-informed</li><li>Weight-inclusive</li><li>Evidence-based</li></ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="b-section" id="b-choose" aria-labelledby="b-choose-h">
+      <div class="wrap b-choose">
+        <div class="b-choose-intro">
+          <span class="b-kicker" aria-hidden="true">Let’s begin</span>
+          <h2 class="h2" id="b-choose-h">Where are you starting?</h2>
+          <p class="body-copy">Everyone comes to nutrition therapy from a different place. Choose the one that sounds most like you.</p>
+          <div class="b-tabs" role="tablist" aria-label="Who is this for">
+            <button class="b-tab" role="tab" id="bt-1" aria-controls="bp-1" aria-selected="true" tabindex="0">My child’s eating worries me<span class="arr"><svg class="ico"><use href="#i-arrow"/></svg></span></button>
+            <button class="b-tab" role="tab" id="bt-2" aria-controls="bp-2" aria-selected="false" tabindex="-1">Food or my body feels hard<span class="arr"><svg class="ico"><use href="#i-arrow"/></svg></span></button>
+            <button class="b-tab" role="tab" id="bt-3" aria-controls="bp-3" aria-selected="false" tabindex="-1">I’m referring a client<span class="arr"><svg class="ico"><use href="#i-arrow"/></svg></span></button>
+          </div>
+        </div>
+        <div>
+          <div class="b-panel" role="tabpanel" id="bp-1" aria-labelledby="bt-1">
+            <span class="fork-mark" aria-hidden="true"></span>
+            <p class="eyebrow">For parents</p>
+            <h3>Calmer meals, confident eaters, and a plan you can actually use</h3>
+            <p>Picky eating, ARFID, and mealtime battles can leave the whole family exhausted. Together we’ll lower the pressure at the table, support your child’s growth, and build skills you can lean on at every meal.</p>
+            <div class="svc">
+              <a href="#">Pediatrics <small>Picky eating, allergies &amp; tube feeding</small><svg class="ico"><use href="#i-arrow"/></svg></a>
+              <a href="#">ARFID support <small>Selective &amp; restrictive eating</small><svg class="ico"><use href="#i-arrow"/></svg></a>
+              <a href="#b-guide">Free Ultimate Picky Eating Guide <small>Strategies you can use tonight</small><svg class="ico"><use href="#i-arrow"/></svg></a>
+            </div>
+            <div class="cta-row"><a class="btn btn-main" href="#">Talk With Christine</a></div>
+          </div>
+          <div class="b-panel" role="tabpanel" id="bp-2" aria-labelledby="bt-2" hidden>
+            <span class="fork-mark" aria-hidden="true"></span>
+            <p class="eyebrow">For teens &amp; adults</p>
+            <h3>Care without judgment, at the pace that’s right for you</h3>
+            <p>Whether you’re in eating disorder recovery, worn out from dieting, or at war with your reflection, you deserve support that doesn’t come with rules or shame. We’ll work toward eating that feels flexible and peaceful.</p>
+            <div class="svc">
+              <a href="#">Eating Disorder Recovery <small>Outpatient nutrition therapy</small><svg class="ico"><use href="#i-arrow"/></svg></a>
+              <a href="#">Disordered Eating / Chronic Dieting <small>Break the diet cycle</small><svg class="ico"><use href="#i-arrow"/></svg></a>
+              <a href="#">Body Image Healing <small>Weight-inclusive support</small><svg class="ico"><use href="#i-arrow"/></svg></a>
+            </div>
+            <div class="cta-row"><a class="btn btn-main" href="#">Talk With Christine</a></div>
+          </div>
+          <div class="b-panel" role="tabpanel" id="bp-3" aria-labelledby="bt-3" hidden>
+            <span class="fork-mark" aria-hidden="true"></span>
+            <p class="eyebrow">For providers</p>
+            <h3>A dietitian who works as part of the team</h3>
+            <p>I collaborate closely with therapists, physicians, and treatment teams to provide outpatient nutrition therapy for eating disorders and pediatric nutrition concerns, with regular updates and shared goals.</p>
+            <div class="svc">
+              <a href="#">Outpatient nutrition therapy <small>ED &amp; pediatric feeding</small><svg class="ico"><use href="#i-arrow"/></svg></a>
+              <a href="#">Care-team coordination <small>Therapists, physicians, families</small><svg class="ico"><use href="#i-arrow"/></svg></a>
+              <a href="#">Telehealth coverage <small>Iowa, Illinois &amp; Wisconsin</small><svg class="ico"><use href="#i-arrow"/></svg></a>
+            </div>
+            <div class="cta-row"><a class="btn btn-main" href="#">Make a Referral</a></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="b-section b-phil" aria-labelledby="b-phil-h">
+      <span class="tree-mark" aria-hidden="true"></span>
+      <div class="wrap">
+        <div class="sec-head">
+          <div><p class="eyebrow">My approach</p><h2 id="b-phil-h">All foods fit. Every body deserves <span class="script">care.</span></h2></div>
+          <p>Adequate nourishment, flexibility with food, body respect, and a sustainable relationship with eating, without shame or food rules.</p>
+        </div>
+        <ul class="b-principles">
+          <li><svg class="ico" aria-hidden="true"><use href="#i-scale-off"/></svg><h3>HAES-informed</h3><p>Health is supported at every size. Weight isn’t the measure of progress or the goal of care.</p></li>
+          <li><svg class="ico" aria-hidden="true"><use href="#i-heart"/></svg><h3>Weight-inclusive</h3><p>Your body is welcome here as it is today. We focus on behaviors, wellbeing, and trust with food.</p></li>
+          <li><svg class="ico" aria-hidden="true"><use href="#i-book"/></svg><h3>Evidence-based</h3><p>Grounded in current research on eating disorders, pediatric feeding, and nutrition science.</p></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="b-section" aria-labelledby="b-about-h">
+      <div class="wrap b-about">
+        <div class="b-portrait"><div class="frame"><img src="img/christine-denim.webp" width="1000" height="1333" loading="lazy" alt="Christine, registered dietitian, smiling on a cream sofa in a denim blouse"></div></div>
+        <div class="b-about-copy">
+          <p class="eyebrow">Meet your dietitian</p>
+          <h2 class="h2" id="b-about-h">Hey there! I’m Christine</h2>
+          <p class="b-pull">Nutrition doesn’t have to look perfect. My kids eat mac and cheese and ice cream too! It’s all about finding the right balance for your family.</p>
+          <p class="body-copy">I’m a Registered Dietitian specializing in eating disorders and pediatric nutrition, with over 15 years of practice in Eastern Iowa and a mom to three. I work with children, teens, and adults navigating everything from selective eating and ARFID to eating disorders and challenges with body image.</p>
+          <dl class="facts">
+            <div><dt>Credentials</dt><dd>RD, LD</dd></div>
+            <div><dt>Experience</dt><dd>15+ years</dd></div>
+            <div><dt>Serving</dt><dd>IA · IL · WI</dd></div>
+          </dl>
+          <div class="b-signoff"><p class="sig">Christine</p><a class="carrot" href="#"><span>Read my story</span><svg class="ico"><use href="#i-arrow"/></svg></a></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="b-section b-process" aria-labelledby="b-proc-h">
+      <div class="wrap">
+        <div class="sec-head">
+          <div><p class="eyebrow">Working together</p><h2 class="h2" id="b-proc-h">What to expect</h2></div>
+          <p class="body-copy">Starting is often the hardest part. Here’s exactly what happens after you reach out.</p>
+        </div>
+        <ol class="b-steps">
+          <li class="b-step"><span class="n">1</span><span class="when">20 minutes · Free</span><h3>Discovery call</h3><p>Ask questions, share your goals, and talk through what you hope to get from our work together.</p></li>
+          <li class="b-step"><span class="n">2</span><span class="when">60–90 minutes</span><h3>Initial assessment</h3><p>An in-depth look at your health history, relationship with food, and nutritional needs, and the next steps toward your goals.</p></li>
+          <li class="b-step"><span class="n">3</span><span class="when">30–40 minutes</span><h3>Follow-up sessions</h3><p>Build skills and strategies, review progress, answer questions, and set new goals at every appointment.</p></li>
+        </ol>
+        <div class="b-proc-cta">
+          <a class="btn btn-main btn-lg" href="#">Schedule Your Free Discovery Call</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="b-section" aria-label="Client testimonial">
+      <div class="wrap">
+        <figure class="b-testi" style="margin:0">
+          <span class="qm" aria-hidden="true">“</span>
+          <div>
+            <blockquote>For the first time in years, food isn’t the loudest thing in my head. Christine never once made me feel judged. She met me exactly where I was.</blockquote>
+            <figcaption>Adult client <span>Eating disorder recovery</span> <span class="ph-tag">Placeholder quote</span></figcaption>
+          </div>
+        </figure>
+      </div>
+    </section>
+
+    <section class="b-section" style="padding-top:0" id="b-guide" aria-labelledby="b-guide-h">
+      <div class="wrap">
+        <div class="guide">
+          <div class="guide-cover" aria-hidden="true"><span class="fork-mark"></span><span class="gc-k">Free guide</span><span class="gc-t">The Ultimate Picky Eating Guide</span><span class="gc-b">Life with Substance</span></div>
+          <div class="guide-copy">
+            <p class="eyebrow">Free download for parents</p>
+            <h2 id="b-guide-h">End mealtime stress, starting tonight</h2>
+            <p class="body-copy" style="color:var(--ink)">Grab the free Ultimate Picky Eating Guide: simple strategies to feed your picky eater with confidence.</p>
+            <form class="guide-form" novalidate>
+              <label for="guide-email-b">Email address</label>
+              <input id="guide-email-b" name="email" type="email" autocomplete="email" placeholder="you@example.com">
+              <button class="btn btn-main" type="submit">Send Me the Guide</button>
+              <p class="status" role="status" aria-live="polite"></p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="b-section" style="padding-top:0" aria-labelledby="b-res-h">
+      <div class="wrap">
+        <div class="sec-head">
+          <div><p class="eyebrow">Resources</p><h2 class="h2" id="b-res-h">From the blog</h2></div>
+          <div class="sec-head-aside"><p class="body-copy">Practical, shame-free guidance for feeding kids, navigating picky eating, and stepping away from diet culture.</p><a class="carrot" href="#"><span>Browse all resources</span><svg class="ico"><use href="#i-arrow"/></svg></a></div>
+        </div>
+        <div class="a-posts">
+          <a class="a-post" href="#"><div class="art"><span class="fork-mark" aria-hidden="true"></span></div><div class="txt"><span class="cat">Picky eating</span><h3>Is your child a picky eater or suffering from ARFID?</h3><span class="meta">by Christine</span></div></a>
+          <a class="a-post" href="#"><div class="art"><span class="fork-mark" aria-hidden="true"></span></div><div class="txt"><span class="cat">Diet culture</span><h3>Helping your teen go from food obsession to food freedom</h3><span class="meta">by Christine</span></div></a>
+          <a class="a-post" href="#"><div class="art"><span class="fork-mark" aria-hidden="true"></span></div><div class="txt"><span class="cat">Feeding kids</span><h3>Help, my baby won’t eat solids!</h3><span class="meta">by Christine</span></div></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="b-cta" aria-labelledby="b-cta-h">
+      <div class="wrap b-cta-grid">
+        <div class="b-cta-copy">
+          <h2 id="b-cta-h">Your first step is a <span class="script">conversation.</span></h2>
+          <p class="lede" style="color:var(--ink)">Book a free 20-minute discovery call and we’ll talk through what’s going on, with no pressure and no commitment.</p>
+          <div class="cta-row"><a class="btn btn-main btn-lg" href="#">Schedule Your Free Discovery Call</a></div>
+        </div>
+        <div class="b-cta-card">
+          <div class="who"><img src="img/christine-mug.webp" width="1000" height="1333" loading="lazy" alt=""><div><b>Christine Nanke, RD, LD</b><span>Pediatric &amp; Eating Disorder Dietitian</span></div></div>
+          <ul>
+            <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Free 20-minute discovery call</li>
+            <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Virtual telehealth across Iowa, Illinois &amp; Wisconsin</li>
+            <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>In network with some insurance plans; HSA/FSA and Superbills welcome</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="b-footer">
+    <span class="tree-mark" aria-hidden="true"></span>
+    <div class="wrap">
+      <div class="ft-grid">
+        <div><a class="logo" href="#"><span class="l1">Life with</span><span class="l2">Substance</span></a><p class="ft-blurb">Pediatric &amp; eating disorder dietitian. Compassionate, weight-inclusive nutrition therapy for kids, teens, and adults.</p></div>
+        <div><h4>Services</h4><ul><li><a href="#">Pediatrics</a></li><li><a href="#">Eating Disorder Recovery</a></li><li><a href="#">Disordered Eating / Chronic Dieting</a></li><li><a href="#">Body Image Healing</a></li></ul></div>
+        <div><h4>Practice</h4><ul><li><a href="#">About</a></li><li><a href="#">Blog &amp; Resources</a></li><li><a href="#">Shop</a></li><li><a href="#">Contact</a></li><li><a href="#">Client Portal Login</a></li></ul></div>
+        <div><h4>Get in touch</h4><ul><li><a href="mailto:christine@lifewithsubstance.com">christine@lifewithsubstance.com</a></li><li><a href="tel:+15633417787">(563) 341-7787</a></li><li>Dubuque, Iowa · Virtual telehealth in IA, IL &amp; WI</li><li><a href="#">Instagram</a> · <a href="#">Facebook</a> · <a href="#">Pinterest</a></li></ul></div>
+      </div>
+      <div class="ft-legal">
+        <p class="crisis">If you’re in crisis, call or text 988 to reach the Suicide &amp; Crisis Lifeline. Content on this site is educational and isn’t a substitute for individualized care.</p>
+        <p>© 2026 Life with Substance, LLC · <a href="#">Privacy Policy</a></p>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<!-- Presentation control for client review (not part of the website) -->
+<div class="switcher" role="group" aria-label="Homepage design direction">
+  <span class="sw-label">Direction</span>
+  <span class="sw-note" id="sw-note">Builds on the current build: blush-led, familiar, polished.</span>
+  <button type="button" data-opt="a" aria-pressed="true"><b>A</b>Refined</button>
+  <button type="button" data-opt="b" aria-pressed="false"><b>B</b>Editorial</button>
+</div>
+
+<script>
+(function(){
+  const notes = {
+    a: "Builds on the current build: blush-led, familiar, polished.",
+    b: "Sage-led and editorial, with an audience chooser up top."
+  };
+  const opts = { a: document.getElementById('option-a'), b: document.getElementById('option-b') };
+  const btns = document.querySelectorAll('.switcher button');
+  const note = document.getElementById('sw-note');
+
+  function show(key, scroll){
+    if(!opts[key]) key = 'a';
+    Object.entries(opts).forEach(([k, el]) => { el.hidden = k !== key; });
+    btns.forEach(b => b.setAttribute('aria-pressed', String(b.dataset.opt === key)));
+    note.textContent = notes[key];
+    try { history.replaceState(null, '', '#option-' + key); } catch(e){}
+    if(scroll) window.scrollTo({ top: 0, behavior: 'auto' });
+  }
+  btns.forEach(b => b.addEventListener('click', () => show(b.dataset.opt, true)));
+  const m = (location.hash || '').match(/option-([ab])/);
+  show(m ? m[1] : 'a', false);
+
+  // Mockup links: keep in-page anchors, swallow dead ones
+  document.addEventListener('click', e => {
+    const a = e.target.closest('a[href="#"]');
+    if(a) e.preventDefault();
+  });
+
+  // Mobile menus
+  document.querySelectorAll('.menu-btn').forEach(btn => {
+    const panel = document.getElementById(btn.getAttribute('aria-controls'));
+    btn.addEventListener('click', () => {
+      const open = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', String(!open));
+      btn.setAttribute('aria-label', open ? 'Open menu' : 'Close menu');
+      btn.querySelector('use').setAttribute('href', open ? '#i-menu' : '#i-close');
+      panel.hidden = open;
+    });
+  });
+
+  // Header shadow on scroll
+  const hds = document.querySelectorAll('.site-hd');
+  const onScroll = () => hds.forEach(h => h.classList.toggle('scrolled', window.scrollY > 8));
+  window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
+
+  // Guide signup (mockup): validate and confirm inline
+  document.querySelectorAll('.guide-form').forEach(f => {
+    f.addEventListener('submit', e => {
+      e.preventDefault();
+      const input = f.querySelector('input');
+      const status = f.querySelector('.status');
+      if(!input.value || !input.checkValidity()){
+        status.textContent = 'Enter an email address like name@example.com.';
+        input.setAttribute('aria-invalid', 'true');
+        input.focus();
+        return;
+      }
+      input.removeAttribute('aria-invalid');
+      status.textContent = 'Thanks! The guide is on its way to your inbox.';
+    });
+  });
+
+  // Review carousel (manual only, loops, swipe + arrow keys)
+  document.querySelectorAll('[data-carousel]').forEach(car => {
+    const view = car.querySelector('.a-car-view');
+    const track = car.querySelector('.a-car-track');
+    const slides = [...track.children];
+    const dotsWrap = car.querySelector('.a-car-dots');
+    const total = slides.length;
+    let index = 0;
+    const dots = slides.map((slide, n) => {
+      slide.setAttribute('role', 'group');
+      slide.setAttribute('aria-roledescription', 'slide');
+      slide.setAttribute('aria-label', (n + 1) + ' of ' + total);
+      const dot = document.createElement('button');
+      dot.type = 'button';
+      dot.setAttribute('aria-label', 'Show review ' + (n + 1) + ' of ' + total);
+      dot.addEventListener('click', () => go(n));
+      dotsWrap.appendChild(dot);
+      return dot;
+    });
+    function go(n){
+      index = (n + total) % total;
+      track.style.transform = 'translateX(' + (-100 * index) + '%)';
+      slides.forEach((s, k) => { const on = k === index; s.setAttribute('aria-hidden', String(!on)); s.inert = !on; });
+      dots.forEach((d, k) => d.setAttribute('aria-current', String(k === index)));
+    }
+    car.querySelector('.a-car-prev').addEventListener('click', () => go(index - 1));
+    car.querySelector('.a-car-next').addEventListener('click', () => go(index + 1));
+    car.addEventListener('keydown', e => {
+      if(e.key === 'ArrowLeft'){ e.preventDefault(); go(index - 1); }
+      if(e.key === 'ArrowRight'){ e.preventDefault(); go(index + 1); }
+    });
+    let startX = null;
+    view.addEventListener('pointerdown', e => { startX = e.clientX; });
+    view.addEventListener('pointerup', e => {
+      if(startX === null) return;
+      const dx = e.clientX - startX; startX = null;
+      if(Math.abs(dx) > 40) go(index + (dx < 0 ? 1 : -1));
+    });
+    view.addEventListener('pointercancel', () => { startX = null; });
+    go(0);
+  });
+
+  // Option B audience chooser (ARIA tabs)
+  const tabs = [...document.querySelectorAll('.b-tab')];
+  function select(tab, focus){
+    tabs.forEach(t => {
+      const on = t === tab;
+      t.setAttribute('aria-selected', String(on));
+      t.tabIndex = on ? 0 : -1;
+      document.getElementById(t.getAttribute('aria-controls')).hidden = !on;
+    });
+    if(focus) tab.focus();
+  }
+  tabs.forEach((t, i) => {
+    t.addEventListener('click', () => select(t));
+    t.addEventListener('keydown', e => {
+      let j = null;
+      if(e.key === 'ArrowDown' || e.key === 'ArrowRight') j = (i + 1) % tabs.length;
+      if(e.key === 'ArrowUp' || e.key === 'ArrowLeft') j = (i - 1 + tabs.length) % tabs.length;
+      if(e.key === 'Home') j = 0;
+      if(e.key === 'End') j = tabs.length - 1;
+      if(j !== null){ e.preventDefault(); select(tabs[j], true); }
+    });
+  });
+})();
+</script>
