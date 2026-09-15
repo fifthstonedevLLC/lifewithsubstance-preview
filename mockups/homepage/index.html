@@ -389,7 +389,7 @@ ul,ol{margin:0;padding:0;list-style:none}
 .switcher{position:fixed;left:50%;bottom:16px;transform:translateX(-50%);z-index:100;display:flex;align-items:center;gap:6px;padding:6px 6px 6px 16px;
   background:#1B1B1B;color:#fff;border-radius:999px;box-shadow:0 12px 32px rgba(0,0,0,.28);max-width:calc(100vw - 32px)}
 .switcher .sw-label{font:700 .6875rem/1.2 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:#BDBDBD;margin-right:6px;white-space:nowrap}
-.switcher .sw-note{font-size:.8125rem;color:#D8D8D8;margin-right:10px;max-width:250px;line-height:1.3}
+.switcher .sw-note{font-size:.8125rem;color:#D8D8D8;margin-right:10px;max-width:320px;line-height:1.3}
 .switcher button{min-height:44px;padding:0 18px;border:0;border-radius:999px;background:transparent;color:#fff;font:700 .9375rem/1 var(--sans);cursor:pointer;white-space:nowrap;transition:background-color .2s}
 .switcher button:hover{background:rgba(255,255,255,.1)}
 .switcher button[aria-pressed="true"]{background:var(--main);color:var(--ink)}
@@ -965,7 +965,7 @@ ul,ol{margin:0;padding:0;list-style:none}
 <!-- Presentation control for client review (not part of the website) -->
 <div class="switcher" role="group" aria-label="Homepage design direction">
   <span class="sw-label">Direction</span>
-  <span class="sw-note" id="sw-note">Builds on the current build: blush-led, familiar, polished.</span>
+  <span class="sw-note" id="sw-note">Warm blush tones and a layout close to your current site, leading with support for parents of picky eaters.</span>
   <button type="button" data-opt="a" aria-pressed="true"><b>A</b>Refined</button>
   <button type="button" data-opt="b" aria-pressed="false"><b>B</b>Editorial</button>
 </div>
@@ -973,8 +973,8 @@ ul,ol{margin:0;padding:0;list-style:none}
 <script>
 (function(){
   const notes = {
-    a: "Builds on the current build: blush-led, familiar, polished.",
-    b: "Sage-led and editorial, with an audience chooser up top."
+    a: "Warm blush tones and a layout close to your current site, leading with support for parents of picky eaters.",
+    b: "Calm sage greens with an elegant, magazine-style feel. Visitors choose their path: parents, teens and adults, or referring providers."
   };
   const opts = { a: document.getElementById('option-a'), b: document.getElementById('option-b') };
   const btns = document.querySelectorAll('.switcher button');
