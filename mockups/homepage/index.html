@@ -82,6 +82,10 @@ ul,ol{margin:0;padding:0;list-style:none}
 .sec-head.cols-4 > :last-child{grid-column:3 / 5}
 .sec-head .eyebrow{margin-bottom:.75rem}
 .sec-head-aside{display:grid;gap:.5rem;justify-items:start}
+.eyebrow-row{display:flex;flex-wrap:wrap;align-items:center;gap:.25rem 1.5rem;margin-bottom:.5rem}
+.eyebrow-row .eyebrow{margin-bottom:0}
+.eyebrow-row .carrot{font-size:.875rem}
+.eyebrow-row .carrot svg{width:16px;height:16px}
 /* Script accent words sit on the serif's baseline without stretching the line box */
 .script{font-family:var(--script);font-weight:400;font-style:normal;letter-spacing:0;line-height:0;vertical-align:baseline}
 .ph-tag{display:inline-block;font:700 .6875rem/1 var(--sans);letter-spacing:.1em;text-transform:uppercase;padding:5px 8px;border-radius:6px;background:var(--light);color:var(--grey)}
@@ -158,11 +162,13 @@ ul,ol{margin:0;padding:0;list-style:none}
 
 .a-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;position:relative;counter-reset:step}
 .a-steps::before{content:"";position:absolute;top:32px;left:calc(16.66% + 32px);right:calc(16.66% + 32px);border-top:2px dashed var(--main);z-index:0}
-.a-step{position:relative;z-index:1;display:grid;justify-items:center;text-align:center;gap:.75rem;padding-inline:8px}
+/* align-content:start keeps each row at its natural height, so the equal-height
+   cards don't stretch their rows (which made the duration pills uneven) */
+.a-step{position:relative;z-index:1;display:grid;justify-items:center;align-content:start;text-align:center;gap:.75rem;padding-inline:8px}
 .a-step .num{width:64px;height:64px;border-radius:50%;display:grid;place-items:center;background:var(--white);box-shadow:0 0 0 2px var(--main);font:700 1.5rem/1 var(--serif)}
 .a-step:first-child .num{background:var(--main)}
 .a-step h3{font-size:1.25rem;font-weight:600}
-.a-step .dur{display:inline-block;padding:3px 10px;border-radius:999px;background:var(--main-light);font-size:.8125rem;font-weight:700;color:var(--grey)}
+.a-step .dur{display:inline-block;align-self:start;min-width:7.5rem;text-align:center;padding:4px 12px;border-radius:999px;background:var(--main-light);font-size:.8125rem;font-weight:700;line-height:1.4;color:var(--grey)}
 .a-step p{color:var(--grey);max-width:28ch}
 .a-center{text-align:center;display:grid;justify-items:center;gap:.75rem;margin-bottom:48px}
 .a-center .eyebrow{justify-content:center}
@@ -425,7 +431,8 @@ ul,ol{margin:0;padding:0;list-style:none}
   .a-steps{grid-template-columns:1fr;gap:28px}
   .a-steps::before{top:32px;bottom:32px;left:31px;right:auto;border-top:0;border-left:2px dashed var(--main)}
   .a-step{grid-template-columns:64px 1fr;justify-items:start;text-align:left;column-gap:1.25rem;padding:0}
-  .a-step .num{grid-row:span 2}
+  .a-step .num{grid-row:1 / span 3}
+  .a-step > :not(.num){grid-column:2}
   .a-posts{grid-template-columns:1fr}
   .a-quote,.b-testi{grid-template-columns:1fr;gap:1rem}
   .a-quote .qmark{font-size:5rem}
@@ -596,7 +603,7 @@ ul,ol{margin:0;padding:0;list-style:none}
           <h2 class="h2" id="a-steps-h">Your first step is a conversation</h2>
         </div>
         <ol class="a-steps">
-          <li class="a-step"><span class="num">1</span><h3>Free discovery call</h3><span class="dur">20 minutes · Free</span><p>Ask questions, share your goals, and talk through what you hope to get from our work together.</p></li>
+          <li class="a-step"><span class="num">1</span><h3>Free discovery call</h3><span class="dur">20 minutes</span><p>Ask questions, share your goals, and talk through what you hope to get from our work together.</p></li>
           <li class="a-step"><span class="num">2</span><h3>Initial assessment</h3><span class="dur">60–90 minutes</span><p>An in-depth look at health history, your relationship with food, and your nutritional needs, plus clear next steps.</p></li>
           <li class="a-step"><span class="num">3</span><h3>Follow-up sessions</h3><span class="dur">30–40 minutes</span><p>Build skills and strategies, review progress, answer questions, and set new goals at each visit.</p></li>
         </ol>
@@ -676,8 +683,8 @@ ul,ol{margin:0;padding:0;list-style:none}
     <section class="a-section" style="padding-top:0" aria-labelledby="a-res-h">
       <div class="wrap">
         <div class="sec-head">
-          <div><p class="eyebrow">Resources</p><h2 class="h2" id="a-res-h">Fresh from the blog</h2></div>
-          <div class="sec-head-aside"><p class="body-copy">Practical, shame-free guidance for feeding kids, navigating picky eating, and stepping away from diet culture.</p><a class="carrot" href="#"><span>Browse all resources</span><svg class="ico"><use href="#i-arrow"/></svg></a></div>
+          <div><div class="eyebrow-row"><p class="eyebrow">Resources</p><a class="carrot" href="#"><span>Browse all resources</span><svg class="ico"><use href="#i-arrow"/></svg></a></div><h2 class="h2" id="a-res-h">Fresh from the blog</h2></div>
+          <div class="sec-head-aside"><p class="body-copy">Practical, shame-free guidance for feeding kids, navigating picky eating, and stepping away from diet culture.</p></div>
         </div>
         <div class="a-posts">
           <a class="a-post" href="#"><div class="art"><span class="fork-mark" aria-hidden="true"></span></div><div class="txt"><span class="cat">Picky eating</span><h3>Is your child a picky eater or suffering from ARFID?</h3><span class="meta">by Christine</span></div></a>
