@@ -1,0 +1,7 @@
+# Private design preview — not for search engines.
+# The HTML pages carry <meta name="robots" content="noindex, nofollow">, which
+# only works if crawlers can fetch them, so they are NOT disallowed here.
+# Blocked below: files that can't carry a meta tag.
+User-agent: *
+Disallow: /img/
+Disallow: /index.html

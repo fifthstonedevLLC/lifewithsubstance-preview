@@ -1,0 +1,117 @@
+<!-- BACKUP: "Where are you starting?" audience chooser, removed from the homepage 2026-09-22.
+     To restore: paste the CSS into the main <style> block (after the .b-section rule), the section
+     between the hero and #services, the JS inside the main script's IIFE, and add these back:
+       960px media query:  .b-choose{grid-template-columns:1fr}
+       560px media query:
+  .b-panel .svc a{grid-template-columns:minmax(0,1fr) 18px;row-gap:2px}
+  .b-panel .svc a small{grid-column:1;grid-row:2;text-align:left}
+  .b-panel .svc a svg{grid-column:2;grid-row:1 / 3}
+     The hero's secondary button pointed here: <a class="btn btn-accent btn-lg" href="#b-choose">Find Your Starting Point</a> -->
+<style>
+.b-kicker{font-family:var(--script);font-size:2.4rem;line-height:1;color:var(--accent-darker);display:block;margin-bottom:.1rem}
+/* ---------- Audience chooser (tabs) ---------- */
+.b-choose{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(32px,5vw,72px);align-items:start}
+.b-choose-intro{display:grid;gap:1.25rem}
+.b-tabs{display:grid;margin-top:1rem;border-top:1px solid var(--hair)}
+.b-tab{display:flex;align-items:center;justify-content:space-between;gap:1rem;width:100%;min-height:72px;padding:14px 16px 14px 4px;border:0;border-bottom:1px solid var(--hair);background:transparent;
+  font:500 clamp(1.15rem,1.8vw,1.375rem)/1.3 var(--serif);text-align:left;color:var(--grey);cursor:pointer;transition:color .2s var(--ease),padding .3s var(--ease),background-color .2s}
+.b-tab .arr{width:40px;height:40px;border-radius:var(--r-ui);display:grid;place-items:center;flex-shrink:0;box-shadow:inset 0 0 0 1.5px var(--hair);transition:background-color .25s var(--ease),box-shadow .25s,transform .3s var(--ease)}
+.b-tab .arr svg{width:18px;height:18px}
+.b-tab:hover{color:var(--ink)}
+.b-tab[aria-selected="true"]{color:var(--ink);padding-left:16px;background:var(--main-light);border-radius:var(--r-ui);border-bottom-color:transparent}
+.b-tab[aria-selected="true"] .arr{background:var(--main);box-shadow:none;transform:rotate(-45deg)}
+.b-panel{border-radius:var(--r-tile);background:var(--main-light);padding:clamp(28px,4vw,48px);display:grid;gap:1.25rem;position:relative;overflow:hidden;min-height:100%}
+.b-panel[hidden]{display:none}
+.b-panel h3{font-size:clamp(1.5rem,2.4vw,2rem);font-weight:600;line-height:1.2;max-width:20ch}
+.b-panel p{max-width:36em}
+.b-panel .svc{display:grid;gap:0;border-top:1px solid rgba(10,10,10,.12)}
+.b-panel .svc a{display:grid;grid-template-columns:minmax(0,1fr) auto 18px;align-items:center;column-gap:1.25rem;min-height:56px;padding-block:8px;border-bottom:1px solid rgba(10,10,10,.12);font-weight:700;text-decoration:none}
+.b-panel .svc a small{font-weight:400;color:var(--grey);font-size:.875rem;text-align:right}
+.b-panel .svc a svg{width:18px;height:18px;transition:transform .25s var(--ease);flex-shrink:0}
+.b-panel .svc a:hover svg{transform:translateX(4px)}
+.b-panel .fork-mark{position:absolute;width:160px;right:-30px;bottom:-40px;background:var(--main);opacity:.45;transform:rotate(-14deg)}
+.b-panel > *:not(.fork-mark){position:relative}
+.b-panel .cta-row{margin-top:.5rem}
+
+</style>
+
+  <section class="b-section" id="b-choose" aria-labelledby="b-choose-h">
+    <div class="wrap b-choose">
+      <div class="b-choose-intro">
+        <span class="b-kicker" aria-hidden="true">Let’s begin</span>
+        <h2 class="h2" id="b-choose-h">Where are you starting?</h2>
+        <p class="body-copy">Everyone comes to nutrition therapy from a different place. Choose the one that sounds most like you.</p>
+        <div class="b-tabs" role="tablist" aria-label="Who is this for">
+          <button class="b-tab" role="tab" id="bt-1" aria-controls="bp-1" aria-selected="true" tabindex="0">My child’s eating worries me<span class="arr"><svg class="ico"><use href="#i-arrow"/></svg></span></button>
+          <button class="b-tab" role="tab" id="bt-2" aria-controls="bp-2" aria-selected="false" tabindex="-1">Food or my body feels hard<span class="arr"><svg class="ico"><use href="#i-arrow"/></svg></span></button>
+          <button class="b-tab" role="tab" id="bt-3" aria-controls="bp-3" aria-selected="false" tabindex="-1">I’m referring a client<span class="arr"><svg class="ico"><use href="#i-arrow"/></svg></span></button>
+        </div>
+      </div>
+      <div>
+        <div class="b-panel" role="tabpanel" id="bp-1" aria-labelledby="bt-1">
+          <span class="fork-mark" aria-hidden="true"></span>
+          <p class="eyebrow">For parents</p>
+          <h3>Calmer meals, confident eaters, and a plan you can actually use</h3>
+          <p>Picky eating, ARFID, and mealtime battles can leave the whole family exhausted. Together we’ll lower the pressure at the table, support your child’s growth, and build skills you can lean on at every meal.</p>
+          <div class="svc">
+            <a href="#">Pediatrics <small>Picky eating, allergies &amp; tube feeding</small><svg class="ico"><use href="#i-arrow"/></svg></a>
+            <a href="#">ARFID support <small>Selective &amp; restrictive eating</small><svg class="ico"><use href="#i-arrow"/></svg></a>
+            <a href="#b-guide">Free Ultimate Picky Eating Guide <small>Strategies you can use tonight</small><svg class="ico"><use href="#i-arrow"/></svg></a>
+          </div>
+          <div class="cta-row"><a class="btn btn-main" href="#">Talk With Christine</a></div>
+        </div>
+        <div class="b-panel" role="tabpanel" id="bp-2" aria-labelledby="bt-2" hidden>
+          <span class="fork-mark" aria-hidden="true"></span>
+          <p class="eyebrow">For teens &amp; adults</p>
+          <h3>Care without judgment, at the pace that’s right for you</h3>
+          <p>Whether you’re in eating disorder recovery, worn out from dieting, or at war with your reflection, you deserve support that doesn’t come with rules or shame. We’ll work toward eating that feels flexible and peaceful.</p>
+          <div class="svc">
+            <a href="#">Eating Disorder Recovery <small>Outpatient nutrition therapy</small><svg class="ico"><use href="#i-arrow"/></svg></a>
+            <a href="#">Disordered Eating / Chronic Dieting <small>Break the diet cycle</small><svg class="ico"><use href="#i-arrow"/></svg></a>
+            <a href="#">Body Image Healing <small>Weight-inclusive support</small><svg class="ico"><use href="#i-arrow"/></svg></a>
+          </div>
+          <div class="cta-row"><a class="btn btn-main" href="#">Talk With Christine</a></div>
+        </div>
+        <div class="b-panel" role="tabpanel" id="bp-3" aria-labelledby="bt-3" hidden>
+          <span class="fork-mark" aria-hidden="true"></span>
+          <p class="eyebrow">For providers</p>
+          <h3>A dietitian who works as part of the team</h3>
+          <p>I collaborate closely with therapists, physicians, and treatment teams to provide outpatient nutrition therapy for eating disorders and pediatric nutrition concerns, with regular updates and shared goals.</p>
+          <div class="svc">
+            <a href="#">Outpatient nutrition therapy <small>ED &amp; pediatric feeding</small><svg class="ico"><use href="#i-arrow"/></svg></a>
+            <a href="#">Care-team coordination <small>Therapists, physicians, families</small><svg class="ico"><use href="#i-arrow"/></svg></a>
+            <a href="#">Telehealth coverage <small>Iowa, Illinois &amp; Wisconsin</small><svg class="ico"><use href="#i-arrow"/></svg></a>
+          </div>
+          <div class="cta-row"><a class="btn btn-main" href="#">Make a Referral</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+<script>
+(function(){
+  // Audience chooser (ARIA tabs)
+  const tabs = [...document.querySelectorAll('.b-tab')];
+  function select(tab, focus){
+    tabs.forEach(t => {
+      const on = t === tab;
+      t.setAttribute('aria-selected', String(on));
+      t.tabIndex = on ? 0 : -1;
+      document.getElementById(t.getAttribute('aria-controls')).hidden = !on;
+    });
+    if(focus) tab.focus();
+  }
+  tabs.forEach((t, i) => {
+    t.addEventListener('click', () => select(t));
+    t.addEventListener('keydown', e => {
+      let j = null;
+      if(e.key === 'ArrowDown' || e.key === 'ArrowRight') j = (i + 1) % tabs.length;
+      if(e.key === 'ArrowUp' || e.key === 'ArrowLeft') j = (i - 1 + tabs.length) % tabs.length;
+      if(e.key === 'Home') j = 0;
+      if(e.key === 'End') j = tabs.length - 1;
+      if(j !== null){ e.preventDefault(); select(tabs[j], true); }
+    });
+  });
+})();
+</script>
