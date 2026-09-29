@@ -8,8 +8,8 @@
 <meta name="robots" content="noindex, nofollow">
 <!-- Cache busting: asset URLs carry ?v=DATE. Bump the tag whenever an image is replaced
      under the same filename, so returning visitors fetch it as a new URL. -->
-<link rel="icon" type="image/png" href="favicon.png?v=20260922">
-<link rel="apple-touch-icon" href="favicon.png?v=20260922">
+<link rel="icon" type="image/png" href="favicon.png?v=20260929">
+<link rel="apple-touch-icon" href="favicon.png?v=20260929">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Allura&family=Karla:ital,wght@0,300..800;1,400&family=Lora:ital,wght@0,400..700;1,400..700&display=swap">
@@ -19,20 +19,29 @@
   /* Palette from Christine (Sept 2026). Blue is for type and navigation only; cream, white and
      blush carry the page. Blush fills are never used as a text color (too light for AA).
        Deep Teal Blue #1D6079  headings, nav, important text      -> --accent-darker
-       Deep Blue-Teal #174F63  footer / dark band                  -> --deep
        Soft Blush     #F4C8C0  buttons, accents, highlights        -> --main
        Dusty Blush    #E9AAA2  secondary accents, hover states     -> --main-darker
        Soft Rose      #F6DDD9  large blush sections                -> --main-light
        Very Light Blue #EAF4F6 soft background sections           -> --accent
-       Light blue accent #DCECEF                                   -> --accent-dark
-       Warm Cream     #FAF7F3  main background                     -> --cream */
+       Warm Cream     #FAF7F3  main background                     -> --cream
+     Greens returning from the original style guide (Sept 2026). Forest carries every dark
+     surface that deep teal used to; the blue stays on type and navigation.
+       Forest Green   #3A5145  type, navigation, philosophy band    -> --accent-darker
+       Pale Sage      #DDE6DC  secondary text on the green band only -> --sage
+     Deep Teal Blue is no longer used as a surface anywhere. Green carries every dark band;
+     the Very Light Blue stays as the soft background tint. */
   --main:#F4C8C0; --main-darker:#E9AAA2; --main-light:#F6DDD9; --main-overlay:rgba(244,200,192,.3);
-  --accent:#EAF4F6; --accent-dark:#DCECEF; --accent-darker:#1D6079; --accent-overlay:rgba(29,96,121,.08);
-  --deep:#174F63; --cream:#FAF7F3;
-  --ink:#0A0A0A; --grey:#333333; --light:#F5F5F5; --white:#FFFFFF;
-  --hair:#EADFDB; --field-line:#618FA1; /* input border: 3.5:1 on white */
-  /* Square shape language: small radii only */
-  --r-ui:2px; --r-btn:2px; --r-tile:2px;
+  --accent:#EAF4F6; --accent-darker:#3A5145; --accent-overlay:rgba(58,81,69,.08);
+  --cream:#FAF7F3;
+  --sage:#DDE6DC;
+  /* Deepened rose for the one script word inside the hero headline: the blush accents
+     are decorative everywhere else, but "peace" is part of the sentence and has to be
+     legible. 3.89:1 on cream, clearing the 3:1 large-text minimum. */
+  --rose-deep:#B5675C;
+  --ink:#0A0A0A; --grey:#383530; --white:#FFFFFF;
+  --hair:#EADFDB; --field-line:#6C8A76; /* input border: 3.1:1 on white */
+  /* Softly squared: enough radius to warm the edges, not enough to read as pill shapes */
+  --r-ui:6px; --r-btn:5px; --r-tile:10px;
   --shadow-sm:0 1px 3px rgba(0,0,0,.12); --shadow-md:0 4px 6px rgba(0,0,0,.1); --shadow-lg:0 10px 15px rgba(0,0,0,.1);
   --shadow-heavy:0 20px 25px -5px rgba(0,0,0,.1);
   --ease:cubic-bezier(.215,.61,.355,1); --ease-bounce:cubic-bezier(.22,1,.36,1);
@@ -50,7 +59,7 @@ a{color:inherit}
 h1,h2,h3,h4{font-family:var(--serif);margin:0;text-wrap:balance;color:var(--accent-darker)}
 p{margin:0}
 ul,ol{margin:0;padding:0;list-style:none}
-:focus-visible{outline:3px solid var(--accent-darker);outline-offset:3px;border-radius:2px}
+:focus-visible{outline:3px solid var(--accent-darker);outline-offset:3px;border-radius:4px}
 .wrap{max-width:1200px;margin-inline:auto;padding-inline:var(--gutter)}
 .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 
@@ -59,9 +68,9 @@ ul,ol{margin:0;padding:0;list-style:none}
 .logo .l1{font-family:var(--serif);font-weight:500;font-size:1.5rem;letter-spacing:-.01em;line-height:1}
 .logo .l2{font-family:var(--script);font-size:2.6rem;line-height:.8;margin-top:.02em;margin-left:-.04em}
 .fork-mark{display:inline-block;aspect-ratio:1;background:var(--main);
-  -webkit-mask:url(img/fork-leaf.png?v=20260922) center/contain no-repeat;mask:url(img/fork-leaf.png?v=20260922) center/contain no-repeat}
+  -webkit-mask:url(img/fork-leaf.png?v=20260929) center/contain no-repeat;mask:url(img/fork-leaf.png?v=20260929) center/contain no-repeat}
 .tree-mark{display:block;aspect-ratio:368/365;background:var(--accent-darker);pointer-events:none;
-  -webkit-mask:url(img/tree.png?v=20260922) center/contain no-repeat;mask:url(img/tree.png?v=20260922) center/contain no-repeat}
+  -webkit-mask:url(img/tree.png?v=20260929) center/contain no-repeat;mask:url(img/tree.png?v=20260929) center/contain no-repeat}
 .ico{width:24px;height:24px;flex-shrink:0;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
 
 /* ---------- Buttons (style-guide patterns) ---------- */
@@ -104,11 +113,11 @@ ul,ol{margin:0;padding:0;list-style:none}
 .eyebrow-row .carrot svg{width:16px;height:16px}
 /* Script accent words sit on the serif's baseline without stretching the line box */
 .script{font-family:var(--script);font-weight:400;font-style:normal;letter-spacing:0;line-height:0;vertical-align:baseline}
-.ph-tag{display:inline-block;font:700 .6875rem/1 var(--sans);letter-spacing:.1em;text-transform:uppercase;padding:5px 8px;border-radius:2px;background:var(--light);color:var(--grey)}
+.ph-tag{display:inline-block;font:700 .6875rem/1 var(--sans);letter-spacing:.1em;text-transform:uppercase;padding:5px 8px;border-radius:var(--r-ui);background:var(--hair);color:var(--grey)}
 .sig{font-family:var(--script);font-size:3.25rem;line-height:1;color:var(--accent-darker)}
 
 /* ---------- Header ---------- */
-.site-hd{position:sticky;top:0;z-index:50;background:var(--accent);transition:box-shadow .3s var(--ease)}
+.site-hd{position:sticky;top:0;z-index:50;background:var(--cream);transition:box-shadow .3s var(--ease)}
 .site-hd.scrolled{box-shadow:0 2px 12px rgba(0,0,0,.08)}
 .hd-row{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:2rem;min-height:92px}
 .main-nav{justify-self:start}
@@ -122,23 +131,24 @@ ul,ol{margin:0;padding:0;list-style:none}
   padding:8px;display:grid!important;gap:2px;opacity:0;visibility:hidden;transform:translateY(6px);transition:opacity .2s var(--ease),transform .2s var(--ease),visibility .2s}
 .has-sub:hover .sub,.has-sub:focus-within .sub{opacity:1;visibility:visible;transform:none}
 .has-sub:hover .chev,.has-sub:focus-within .chev{transform:rotate(180deg)}
-.sub a{display:grid;gap:1px;padding:10px 12px;font-weight:700;border-radius:2px;min-height:0}
+.sub a{display:grid;gap:1px;padding:10px 12px;font-weight:700;border-radius:var(--r-ui);min-height:0}
 .sub a small{font-weight:400;font-size:.8125rem;color:var(--grey)}
 .hd-ctas{display:flex;gap:.75rem;align-items:center;justify-self:end}
 .menu-btn{display:none;margin-left:auto;width:48px;height:48px;border:0;border-radius:var(--r-ui);background:transparent;cursor:pointer;color:var(--ink);align-items:center;justify-content:center}
 .menu-btn svg{width:26px;height:26px}
 .mnav{border-top:1px solid var(--hair);background:var(--cream);padding-block:12px 20px}
-.mnav a{display:flex;align-items:center;min-height:48px;font-weight:700;color:var(--accent-darker);text-decoration:none;border-bottom:1px solid var(--light)}
+.mnav a{display:flex;align-items:center;min-height:48px;font-weight:700;color:var(--accent-darker);text-decoration:none;border-bottom:1px solid var(--hair)}
 .mnav .mnav-sub a{font-weight:400;padding-left:1rem;min-height:44px}
 .mnav .mnav-ctas{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:16px}
 .mnav .mnav-ctas a{border-bottom:0}
 
 /* ---------- Hero: full-width background image ---------- */
 .b-hero{position:relative;overflow:hidden;isolation:isolate;padding-block:clamp(56px,8vw,120px)}
-/* PLACEHOLDER background. When the final photo arrives, put it inside .b-hero-bg as
-   <img src="img/hero.webp?v=20260922" alt="" width="…" height="…"> and delete the .b-hero-ph label. */
-.b-hero-bg{position:absolute;inset:0;z-index:-1;background:repeating-linear-gradient(135deg,rgba(10,10,10,.04) 0 2px,transparent 2px 16px) var(--light)}
-.b-hero-bg img{width:100%;height:100%;object-fit:cover;object-position:65% 50%}
+/* Hero photo: full-resolution original, shot orientation, never mirrored. The kitchen is
+   extended leftward as a cream-to-background gradient so the photo dissolves across the whole
+   copy column without the fade ever reaching her. Replace the file and bump ?v= to swap it. */
+.b-hero-bg{position:absolute;inset:0;z-index:-1;background:var(--cream)}
+.b-hero-bg img{width:100%;height:100%;object-fit:cover;object-position:85% 8%}
 /* Light scrim behind the copy so the headline stays readable over any photo */
 .b-hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(250,247,243,.95) 0%,rgba(250,247,243,.85) 40%,rgba(250,247,243,0) 72%)}
 .b-hero-ph{position:absolute;z-index:1;top:20px;right:var(--gutter)}
@@ -148,7 +158,7 @@ ul,ol{margin:0;padding:0;list-style:none}
    phones; the 4rem cap keeps it inside the 44rem copy column on wide screens. */
 .b-h1{font-weight:500;font-size:clamp(1.7rem,8.4vw,4rem);line-height:1.08;letter-spacing:-.02em;padding-bottom:.12em}
 .b-h1 .ln{display:block;white-space:nowrap}
-.b-h1 .script{font-size:1.6em;color:var(--main-darker);margin-inline:.04em .02em}
+.b-h1 .script{font-size:1.6em;color:var(--rose-deep);margin-inline:.04em .02em}
 .b-hero .lede{color:var(--ink);max-width:31em}
 .b-where{display:flex;align-items:center;gap:.5rem;font-size:.9375rem;font-weight:500;color:var(--accent-darker)}
 .b-where .ico{width:20px;height:20px}
@@ -161,7 +171,6 @@ ul,ol{margin:0;padding:0;list-style:none}
 .svc-tile{display:flex;flex-direction:column;gap:.75rem;padding:28px 24px 20px;border-radius:var(--r-tile);background:var(--white);box-shadow:0 0 0 1px var(--hair);text-decoration:none;transition:transform .35s var(--ease),box-shadow .35s var(--ease)}
 .svc-tile:hover{transform:translateY(-6px);box-shadow:0 0 0 1px var(--hair),var(--shadow-heavy)}
 .svc-tile .disc{width:56px;height:56px;border-radius:var(--r-ui);display:grid;place-items:center;background:var(--main-light);color:var(--accent-darker);margin-bottom:.5rem}
-.svc-tile:nth-child(even) .disc{background:var(--accent);color:var(--accent-darker)}
 .svc-tile .disc .ico{width:28px;height:28px}
 .svc-tile h3{font-size:1.3125rem;font-weight:600;line-height:1.25}
 .svc-tile p{color:var(--grey);font-size:.975rem;flex:1}
@@ -175,17 +184,17 @@ ul,ol{margin:0;padding:0;list-style:none}
 .path h3{font-size:clamp(1.3rem,1.9vw,1.5rem);font-weight:600;line-height:1.25}
 
 /* ---------- Philosophy ---------- */
-.b-phil{background:var(--deep);color:var(--white);position:relative;overflow:hidden}
+.b-phil{background:var(--accent-darker);color:var(--white);position:relative;overflow:hidden}
 .b-phil .tree-mark{position:absolute;width:min(40vw,520px);right:-6%;top:50%;transform:translateY(-50%);background:var(--white);opacity:.07}
 .b-phil h2{color:var(--white);font-weight:500;font-size:clamp(2.2rem,4.4vw,3.75rem);line-height:1.08;letter-spacing:-.015em;max-width:15ch}
 .b-phil h2 .script{font-size:1.5em;color:var(--main)}
-.b-phil .eyebrow{color:var(--accent);margin-bottom:1.25rem}
+.b-phil .eyebrow{color:var(--sage);margin-bottom:1.25rem}
 .b-phil .sec-head{--cg:40px;position:relative;margin-bottom:0}
-.b-phil .sec-head p{color:var(--accent);font-size:1.125rem}
+.b-phil .sec-head p{color:var(--sage);font-size:1.125rem}
 .b-principles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:40px;margin-top:clamp(40px,5vw,72px);position:relative}
-.b-principles li{border-top:1px solid rgba(234,244,246,.3);padding-top:1.5rem;display:grid;gap:.6rem;align-content:start}
+.b-principles li{border-top:1px solid rgba(221,230,220,.3);padding-top:1.5rem;display:grid;gap:.6rem;align-content:start}
 .b-principles h3{color:var(--white);font-size:1.5rem;font-weight:500}
-.b-principles p{color:var(--accent)}
+.b-principles p{color:var(--sage)}
 .b-principles .ico{width:32px;height:32px;color:var(--main);margin-bottom:.4rem}
 
 /* ---------- About ---------- */
@@ -205,7 +214,7 @@ ul,ol{margin:0;padding:0;list-style:none}
 .b-process{background:var(--accent);padding-block:clamp(48px,5.5vw,80px)}
 .b-process .sec-head{margin-bottom:clamp(28px,3vw,40px)}
 .b-steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
-.b-step{background:var(--white);border-radius:var(--r-tile);padding:26px 24px;display:grid;gap:.6rem;align-content:start;height:100%}
+.b-step{background:var(--white);box-shadow:0 0 0 1px var(--hair);border-radius:var(--r-tile);padding:26px 24px;display:grid;gap:.6rem;align-content:start;height:100%}
 .b-step .n{font:italic 500 3.5rem/1 var(--serif);color:var(--accent-darker)}
 .b-step .when{font:700 .75rem/1 var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--accent-darker)}
 .b-step h3{font-size:1.375rem;font-weight:600}
@@ -231,12 +240,12 @@ ul,ol{margin:0;padding:0;list-style:none}
 .car-next{grid-area:next}
 .car-dots{grid-area:dots;display:flex;justify-content:center;gap:2px}
 .car-dots button{width:28px;height:28px;padding:0;border:0;background:transparent;display:grid;place-items:center;cursor:pointer;border-radius:var(--r-ui)}
-.car-dots button::before{content:"";width:8px;height:8px;border-radius:1px;background:var(--main);transition:width .3s var(--ease),background-color .3s var(--ease)}
+.car-dots button::before{content:"";width:8px;height:8px;border-radius:2px;background:var(--main);transition:width .3s var(--ease),background-color .3s var(--ease)}
 .car-dots button[aria-current="true"]::before{width:24px;background:var(--accent-darker)}
 
 /* ---------- Free guide (lead magnet) ---------- */
 .guide{display:grid;grid-template-columns:auto 1fr;gap:clamp(32px,5vw,72px);align-items:center;border-radius:var(--r-tile);background:var(--accent);padding:clamp(28px,5vw,56px) clamp(24px,5vw,64px)}
-.guide-cover{position:relative;width:210px;aspect-ratio:3/4;background:var(--white);border-radius:1px var(--r-tile) var(--r-tile) 1px;box-shadow:var(--shadow-heavy);padding:26px 22px 22px 30px;display:flex;flex-direction:column;gap:.5rem;transform:rotate(-4deg);overflow:hidden}
+.guide-cover{position:relative;width:210px;aspect-ratio:3/4;background:var(--white);border-radius:2px var(--r-tile) var(--r-tile) 2px;box-shadow:var(--shadow-heavy);padding:26px 22px 22px 30px;display:flex;flex-direction:column;gap:.5rem;transform:rotate(-4deg);overflow:hidden}
 .guide-cover::before{content:"";position:absolute;inset:0 auto 0 0;width:10px;background:var(--main)}
 .guide-cover .fork-mark{width:44px;margin-bottom:.25rem}
 .guide-cover .gc-k{font:700 .625rem/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--accent-darker)}
@@ -254,14 +263,7 @@ ul,ol{margin:0;padding:0;list-style:none}
 .posts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
 .post{display:flex;flex-direction:column;border-radius:var(--r-tile);overflow:hidden;background:var(--white);box-shadow:0 0 0 1px var(--hair);text-decoration:none;transition:transform .35s var(--ease),box-shadow .35s var(--ease)}
 .post:hover{transform:translateY(-6px);box-shadow:0 0 0 1px var(--hair),var(--shadow-heavy)}
-/* PLACEHOLDER art: the flat color fills + fork-and-leaf mark stand in for real blog post
-   featured images. Once available, drop an <img> into each .art (styled below) and
-   remove the .fork-mark span. */
-.post .art{aspect-ratio:16/9;position:relative;overflow:hidden;background:var(--main-light)}
-.post:nth-child(2) .art{background:var(--accent)}
-.post:nth-child(3) .art{background:var(--main)}
-.post .art .fork-mark{position:absolute;width:44%;left:50%;top:50%;transform:translate(-50%,-44%) rotate(-8deg);background:var(--white);opacity:.85}
-.post:nth-child(2) .art .fork-mark{transform:translate(-50%,-44%) rotate(10deg)}
+.post .art{aspect-ratio:16/9;position:relative;overflow:hidden;background:var(--hair)}
 .post .art img{width:100%;height:100%;object-fit:cover}
 .post .txt{padding:22px 24px 24px;display:grid;gap:.6rem}
 .post .cat{font:700 .75rem/1 var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--accent-darker)}
@@ -275,7 +277,7 @@ ul,ol{margin:0;padding:0;list-style:none}
 .b-cta-panel{position:relative;overflow:hidden;isolation:isolate;background:var(--accent-darker);border-radius:var(--r-tile);padding:clamp(32px,5.5vw,80px) clamp(24px,5.5vw,80px)}
 .b-cta-panel .tree-mark{position:absolute;z-index:-1;width:min(46vw,480px);right:-8%;bottom:-38%;background:var(--white);opacity:.06}
 .b-cta-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:2.5rem 4rem;align-items:center}
-.b-cta .eyebrow{color:var(--accent-dark)}
+.b-cta .eyebrow{color:var(--accent)}
 .b-cta h2{color:var(--white);font-weight:500;font-size:clamp(2.1rem,4.2vw,3.5rem);line-height:1.12;letter-spacing:-.02em}
 .b-cta h2 em{font-style:italic;color:var(--main)}
 .b-cta .lede{color:var(--accent)}
@@ -290,7 +292,7 @@ ul,ol{margin:0;padding:0;list-style:none}
 .b-cta-card ul{display:grid;gap:.6rem}
 
 /* ---------- Footer ---------- */
-.b-footer{background:var(--deep);color:var(--accent);padding-block:72px 32px;position:relative;overflow:hidden}
+.b-footer{background:var(--accent-darker);color:var(--accent);padding-block:72px 32px;position:relative;overflow:hidden}
 .b-footer .tree-mark{position:absolute;width:420px;left:-120px;bottom:-160px;background:var(--white);opacity:.05}
 /* The contact column has a floor wide enough for the email address, which never wraps */
 .ft-grid{position:relative;display:grid;grid-template-columns:1.3fr 1fr 1fr minmax(16.5rem,1.3fr);gap:40px}
@@ -327,7 +329,10 @@ ul,ol{margin:0;padding:0;list-style:none}
   .hd-row{gap:1rem}
   .main-nav a{padding:0 .6rem}
   .b-hero-inner{grid-template-columns:minmax(0,1fr)}
-  .b-hero-bg::after{background:linear-gradient(180deg,rgba(250,247,243,.92) 0%,rgba(250,247,243,.84) 100%)}
+  /* Single column: the copy now sits over the photo instead of beside it. Crop away from her
+     face so nothing reads as a ghost behind the headline, and lift the scrim to match. */
+  .b-hero-bg img{object-position:20% 50%}
+  .b-hero-bg::after{background:linear-gradient(180deg,rgba(250,247,243,.95) 0%,rgba(250,247,243,.88) 100%)}
 }
 @media (max-width:960px){
   .main-nav,.hd-ctas{display:none}
@@ -416,7 +421,7 @@ ul,ol{margin:0;padding:0;list-style:none}
 
 <main>
   <section class="b-hero" aria-labelledby="b-h1">
-    <div class="b-hero-bg" aria-hidden="true"><img src="img/hero.webp?v=20260922" alt="" width="1168" height="784" fetchpriority="high"></div>
+    <div class="b-hero-bg" aria-hidden="true"><img src="img/hero-kitchen.webp?v=20260929" alt="" width="2400" height="1000" fetchpriority="high"></div>
     <div class="wrap b-hero-inner">
       <div class="b-hero-copy">
         <p class="eyebrow rise">Pediatric &amp; Eating Disorder Dietitian · Dubuque, Iowa</p>
@@ -493,7 +498,7 @@ ul,ol{margin:0;padding:0;list-style:none}
 
   <section class="b-section" aria-labelledby="b-about-h">
     <div class="wrap b-about">
-      <div class="b-portrait reveal"><div class="frame"><img src="img/christine-denim.webp?v=20260922" width="1000" height="1333" loading="lazy" alt="Christine, registered dietitian, smiling on a cream sofa in a denim blouse"></div></div>
+      <div class="b-portrait reveal"><div class="frame"><img src="img/christine-denim.webp?v=20260929" width="1000" height="1333" loading="lazy" alt="Christine, registered dietitian, smiling on a cream sofa in a denim blouse"></div></div>
       <div class="b-about-copy">
         <p class="eyebrow">Meet your dietitian</p>
         <h2 class="h2" id="b-about-h">Hey there! I’m Christine</h2>
@@ -611,9 +616,9 @@ ul,ol{margin:0;padding:0;list-style:none}
       <!-- Blog card art is a PLACEHOLDER (flat color fill + fork-and-leaf mark). Replace each
            .art's contents with the post's featured image once real images are available. -->
       <div class="posts">
-        <a class="post reveal" href="#"><div class="art"><img src="img/blog-arfid.webp?v=20260922" width="1200" height="675" loading="lazy" alt=""></div><div class="txt"><span class="cat">Picky eating</span><h3>Is your child a picky eater or suffering from ARFID?</h3><span class="meta">by Christine</span></div></a>
-        <a class="post reveal" href="#"><div class="art"><img src="img/blog-teen-food-freedom.webp?v=20260922" width="1200" height="675" loading="lazy" alt=""></div><div class="txt"><span class="cat">Diet culture</span><h3>Helping your teen go from food obsession to food freedom</h3><span class="meta">by Christine</span></div></a>
-        <a class="post reveal" href="#"><div class="art"><img src="img/blog-baby-solids.webp?v=20260922" width="1200" height="675" loading="lazy" alt=""></div><div class="txt"><span class="cat">Feeding kids</span><h3>Help, my baby won’t eat solids!</h3><span class="meta">by Christine</span></div></a>
+        <a class="post reveal" href="#"><div class="art"><img src="img/blog-arfid.webp?v=20260929" width="1200" height="675" loading="lazy" alt=""></div><div class="txt"><span class="cat">Picky eating</span><h3>Is your child a picky eater or suffering from ARFID?</h3><span class="meta">by Christine</span></div></a>
+        <a class="post reveal" href="#"><div class="art"><img src="img/blog-teen-food-freedom.webp?v=20260929" width="1200" height="675" loading="lazy" alt=""></div><div class="txt"><span class="cat">Diet culture</span><h3>Helping your teen go from food obsession to food freedom</h3><span class="meta">by Christine</span></div></a>
+        <a class="post reveal" href="#"><div class="art"><img src="img/blog-baby-solids.webp?v=20260929" width="1200" height="675" loading="lazy" alt=""></div><div class="txt"><span class="cat">Feeding kids</span><h3>Help, my baby won’t eat solids!</h3><span class="meta">by Christine</span></div></a>
       </div>
     </div>
   </section>
@@ -629,7 +634,7 @@ ul,ol{margin:0;padding:0;list-style:none}
         <div class="cta-row"><a class="btn btn-main btn-lg" href="#">Schedule Your Free Discovery Call</a></div>
       </div>
       <div class="b-cta-card reveal">
-        <div class="who"><img src="img/christine-mug.webp?v=20260922" width="1000" height="1333" loading="lazy" alt=""><div><b>Christine Nanke, RD, LD</b><span>Pediatric &amp; Eating Disorder Dietitian</span></div></div>
+        <div class="who"><img src="img/christine-mug.webp?v=20260929" width="1000" height="1333" loading="lazy" alt=""><div><b>Christine Nanke, RD, LD</b><span>Pediatric &amp; Eating Disorder Dietitian</span></div></div>
         <ul>
           <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Free 20-minute discovery call</li>
           <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Virtual telehealth across Iowa, Illinois &amp; Wisconsin</li>
