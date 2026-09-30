@@ -48,6 +48,7 @@
 }
 *,*::before,*::after{box-sizing:border-box}
 html{scroll-behavior:smooth}
+section[id]{scroll-margin-top:116px}
 body{margin:0;background:var(--cream);color:var(--ink);font:400 17px/1.55 var(--sans);-webkit-font-smoothing:antialiased}
 img{max-width:100%;display:block;height:auto}
 a{color:inherit}
@@ -211,6 +212,10 @@ ul,ol{margin:0;padding:0;list-style:none}
 .b-step h3{font-size:1.375rem;font-weight:600}
 .b-step p{color:var(--grey)}
 .sec-cta{display:flex;justify-content:center;margin-top:clamp(28px,3vw,40px)}
+/* The blog's "browse all" hangs off the left edge like the heading above it, and the section
+   gives up its bottom padding so the closing panel follows on directly. */
+.b-blog{padding-top:0;padding-bottom:0}
+.b-blog .sec-cta{justify-content:flex-start}
 
 /* ---------- Reviews carousel (ported from the former Refined design) ---------- */
 .quote{display:grid;grid-template-columns:auto 1fr;gap:1.5rem 2.5rem;align-items:start}
@@ -325,6 +330,7 @@ ul,ol{margin:0;padding:0;list-style:none}
   .b-hero-bg::after{background:linear-gradient(180deg,rgba(250,247,243,.95) 0%,rgba(250,247,243,.88) 100%)}
 }
 @media (max-width:960px){
+  section[id]{scroll-margin-top:104px}   /* header shrinks to 80px here */
   .main-nav,.hd-ctas{display:none}
   .menu-btn{display:inline-flex}
   .hd-row{grid-template-columns:1fr auto;min-height:80px}
@@ -419,7 +425,7 @@ ul,ol{margin:0;padding:0;list-style:none}
         <p class="lede rise d2">Compassionate nutrition therapy for kids, teens, and adults, from picky eating and ARFID to eating disorder recovery and body image healing.</p>
         <div class="cta-row rise d3">
           <a class="btn btn-main btn-lg" href="#">Schedule Your Free Discovery Call</a>
-          <a class="btn btn-accent btn-lg" href="#services">Explore Services</a>
+          <a class="btn btn-accent btn-lg" href="#b-guide">Get My Free Picky Eating Guide</a>
         </div>
         <p class="b-where rise d3"><svg class="ico" aria-hidden="true"><use href="#i-video"/></svg>Virtual telehealth appointments across Iowa, Illinois &amp; Wisconsin</p>
       </div>
@@ -596,7 +602,7 @@ ul,ol{margin:0;padding:0;list-style:none}
     </div>
   </section>
 
-  <section class="b-section" style="padding-top:0" aria-labelledby="b-res-h">
+  <section class="b-section b-blog" aria-labelledby="b-res-h">
     <div class="wrap">
       <div class="sec-head">
         <div><h2 class="h2" id="b-res-h">From the blog</h2></div>
