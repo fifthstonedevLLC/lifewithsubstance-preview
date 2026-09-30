@@ -16,24 +16,19 @@
 <style>
 /* ---------- Tokens (from lifewithsubstance.fifthstonedev.com/style-guide) ---------- */
 :root{
-  /* Palette from Christine (Sept 2026). Blue is for type and navigation only; cream, white and
-     blush carry the page. Blush fills are never used as a text color (too light for AA).
-       Deep Teal Blue #1D6079  headings, nav, important text      -> --accent-darker
-       Soft Blush     #F4C8C0  buttons, accents, highlights        -> --main
-       Dusty Blush    #E9AAA2  secondary accents, hover states     -> --main-darker
-       Soft Rose      #F6DDD9  large blush sections                -> --main-light
-       Very Light Blue #EAF4F6 soft background sections           -> --accent
-       Warm Cream     #FAF7F3  main background                     -> --cream
-     Greens returning from the original style guide (Sept 2026). Forest carries every dark
-     surface that deep teal used to; the blue stays on type and navigation.
-       Forest Green   #3A5145  type, navigation, philosophy band    -> --accent-darker
-       Pale Sage      #DDE6DC  secondary text on the green band only -> --sage
-     Deep Teal Blue is no longer used as a surface anywhere. Green carries every dark band;
-     the Very Light Blue stays as the soft background tint. */
+  /* Palette (Sept 2026). Green does the heavy lifting, blush does the asking, cream is the
+     page. No blue remains: the deep teal came off every surface and the very light blue was
+     replaced by the light green below. Blush fills are never used as a text color (too light
+     for AA).
+       Forest Green   #3A5145  type, nav, and every dark surface    -> --accent-darker
+       Light Green    #D1D8CE  soft bands + secondary text on green -> --accent
+       Soft Blush     #F4C8C0  buttons, accents, highlights         -> --main
+       Dusty Blush    #E9AAA2  hover states                         -> --main-darker
+       Soft Rose      #F6DDD9  service icon discs, portrait block   -> --main-light
+       Warm Cream     #FAF7F3  main background                      -> --cream */
   --main:#F4C8C0; --main-darker:#E9AAA2; --main-light:#F6DDD9; --main-overlay:rgba(244,200,192,.3);
-  --accent:#EAF4F6; --accent-darker:#3A5145; --accent-overlay:rgba(58,81,69,.08);
+  --accent:#D1D8CE; --accent-darker:#3A5145; --accent-overlay:rgba(58,81,69,.08);
   --cream:#FAF7F3;
-  --sage:#DDE6DC;
   /* Deepened rose for the one script word inside the hero headline: the blush accents
      are decorative everywhere else, but "peace" is part of the sentence and has to be
      legible. 3.89:1 on cream, clearing the 3:1 large-text minimum. */
@@ -107,10 +102,6 @@ ul,ol{margin:0;padding:0;list-style:none}
 .sec-head.cols-4 > :last-child{grid-column:3 / 5}
 .sec-head .eyebrow{margin-bottom:.75rem}
 .sec-head-aside{display:grid;gap:.5rem;justify-items:start}
-.eyebrow-row{display:flex;flex-wrap:wrap;align-items:center;gap:.25rem 1.5rem;margin-bottom:.5rem}
-.eyebrow-row .eyebrow{margin-bottom:0}
-.eyebrow-row .carrot{font-size:.875rem}
-.eyebrow-row .carrot svg{width:16px;height:16px}
 /* Script accent words sit on the serif's baseline without stretching the line box */
 .script{font-family:var(--script);font-weight:400;font-style:normal;letter-spacing:0;line-height:0;vertical-align:baseline}
 .ph-tag{display:inline-block;font:700 .6875rem/1 var(--sans);letter-spacing:.1em;text-transform:uppercase;padding:5px 8px;border-radius:var(--r-ui);background:var(--hair);color:var(--grey)}
@@ -188,13 +179,13 @@ ul,ol{margin:0;padding:0;list-style:none}
 .b-phil .tree-mark{position:absolute;width:min(40vw,520px);right:-6%;top:50%;transform:translateY(-50%);background:var(--white);opacity:.07}
 .b-phil h2{color:var(--white);font-weight:500;font-size:clamp(2.2rem,4.4vw,3.75rem);line-height:1.08;letter-spacing:-.015em;max-width:15ch}
 .b-phil h2 .script{font-size:1.5em;color:var(--main)}
-.b-phil .eyebrow{color:var(--sage);margin-bottom:1.25rem}
+.b-phil .eyebrow{color:var(--accent);margin-bottom:1.25rem}
 .b-phil .sec-head{--cg:40px;position:relative;margin-bottom:0}
-.b-phil .sec-head p{color:var(--sage);font-size:1.125rem}
+.b-phil .sec-head p{color:var(--accent);font-size:1.125rem}
 .b-principles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:40px;margin-top:clamp(40px,5vw,72px);position:relative}
-.b-principles li{border-top:1px solid rgba(221,230,220,.3);padding-top:1.5rem;display:grid;gap:.6rem;align-content:start}
+.b-principles li{border-top:1px solid rgba(209,216,206,.3);padding-top:1.5rem;display:grid;gap:.6rem;align-content:start}
 .b-principles h3{color:var(--white);font-size:1.5rem;font-weight:500}
-.b-principles p{color:var(--sage)}
+.b-principles p{color:var(--accent)}
 .b-principles .ico{width:32px;height:32px;color:var(--main);margin-bottom:.4rem}
 
 /* ---------- About ---------- */
@@ -219,7 +210,7 @@ ul,ol{margin:0;padding:0;list-style:none}
 .b-step .when{font:700 .75rem/1 var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--accent-darker)}
 .b-step h3{font-size:1.375rem;font-weight:600}
 .b-step p{color:var(--grey)}
-.b-proc-cta{display:flex;justify-content:center;margin-top:clamp(28px,3vw,40px)}
+.sec-cta{display:flex;justify-content:center;margin-top:clamp(28px,3vw,40px)}
 
 /* ---------- Reviews carousel (ported from the former Refined design) ---------- */
 .quote{display:grid;grid-template-columns:auto 1fr;gap:1.5rem 2.5rem;align-items:start}
@@ -277,9 +268,8 @@ ul,ol{margin:0;padding:0;list-style:none}
 .b-cta-panel{position:relative;overflow:hidden;isolation:isolate;background:var(--accent-darker);border-radius:var(--r-tile);padding:clamp(32px,5.5vw,80px) clamp(24px,5.5vw,80px)}
 .b-cta-panel .tree-mark{position:absolute;z-index:-1;width:min(46vw,480px);right:-8%;bottom:-38%;background:var(--white);opacity:.06}
 .b-cta-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:2.5rem 4rem;align-items:center}
-.b-cta .eyebrow{color:var(--accent)}
 .b-cta h2{color:var(--white);font-weight:500;font-size:clamp(2.1rem,4.2vw,3.5rem);line-height:1.12;letter-spacing:-.02em}
-.b-cta h2 em{font-style:italic;color:var(--main)}
+.b-cta h2 .script{font-size:1.5em;color:var(--main);margin-inline:.04em .02em}
 .b-cta .lede{color:var(--accent)}
 .b-cta-copy{display:grid;gap:1.5rem;justify-items:start}
 .b-cta-card{background:var(--white);border-radius:var(--r-tile);padding:28px;display:grid;gap:1rem;box-shadow:var(--shadow-lg)}
@@ -303,7 +293,7 @@ ul,ol{margin:0;padding:0;list-style:none}
 .ft-grid a[href^="mailto:"]{white-space:nowrap}
 .b-footer .logo{color:var(--white)}
 .ft-blurb{margin-top:1rem;color:var(--accent);max-width:30ch}
-.ft-legal{position:relative;margin-top:48px;padding-top:24px;border-top:1px solid rgba(234,244,246,.25);display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem;font-size:.875rem;color:var(--accent)}
+.ft-legal{position:relative;margin-top:48px;padding-top:24px;border-top:1px solid rgba(209,216,206,.25);display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem;font-size:.875rem;color:var(--accent)}
 .ft-legal a{color:var(--white)}
 .ft-legal .crisis{max-width:62ch}
 
@@ -439,7 +429,7 @@ ul,ol{margin:0;padding:0;list-style:none}
   <section class="b-section b-services" id="services" aria-labelledby="svc-h">
     <div class="wrap">
       <div class="sec-head cols-4">
-        <div><p class="eyebrow">Areas of specialty</p><h2 class="h2" id="svc-h">How I can help</h2></div>
+        <div><h2 class="h2" id="svc-h">How I can help</h2></div>
         <p class="body-copy">Every body, every age, and every relationship with food is different. Care is individualized, collaborative, and free of food rules, whether we’re working on a toddler’s plate or an adult’s recovery.</p>
       </div>
       <div class="svc-tiles">
@@ -500,7 +490,6 @@ ul,ol{margin:0;padding:0;list-style:none}
     <div class="wrap b-about">
       <div class="b-portrait reveal"><div class="frame"><img src="img/christine-denim.webp?v=20260929" width="1000" height="1333" loading="lazy" alt="Christine, registered dietitian, smiling on a cream sofa in a denim blouse"></div></div>
       <div class="b-about-copy">
-        <p class="eyebrow">Meet your dietitian</p>
         <h2 class="h2" id="b-about-h">Hey there! I’m Christine</h2>
         <p class="b-pull">Nutrition doesn’t have to look perfect. My kids eat mac and cheese and ice cream too! It’s all about finding the right balance for your family.</p>
         <p class="body-copy">I’m a Registered Dietitian specializing in eating disorders and pediatric nutrition, with over 15 years of practice in Eastern Iowa and a mom to three. I work with children, teens, and adults navigating everything from selective eating and ARFID to eating disorders and challenges with body image.</p>
@@ -525,7 +514,7 @@ ul,ol{margin:0;padding:0;list-style:none}
         <li class="b-step"><span class="n">2</span><span class="when">60–90 minutes</span><h3>Initial assessment</h3><p>An in-depth look at your health history, relationship with food, and nutritional needs, and the next steps toward your goals.</p></li>
         <li class="b-step"><span class="n">3</span><span class="when">30–40 minutes</span><h3>Follow-up sessions</h3><p>Build skills and strategies, review progress, answer questions, and set new goals at every appointment.</p></li>
       </ol>
-      <div class="b-proc-cta">
+      <div class="sec-cta">
         <a class="btn btn-main btn-lg" href="#">Schedule Your Free Discovery Call</a>
       </div>
     </div>
@@ -610,15 +599,16 @@ ul,ol{margin:0;padding:0;list-style:none}
   <section class="b-section" style="padding-top:0" aria-labelledby="b-res-h">
     <div class="wrap">
       <div class="sec-head">
-        <div><div class="eyebrow-row"><p class="eyebrow">Resources</p><a class="carrot" href="#"><span>Browse all resources</span><svg class="ico"><use href="#i-arrow"/></svg></a></div><h2 class="h2" id="b-res-h">From the blog</h2></div>
+        <div><h2 class="h2" id="b-res-h">From the blog</h2></div>
         <div class="sec-head-aside"><p class="body-copy">Practical, shame-free guidance for feeding kids, navigating picky eating, and stepping away from diet culture.</p></div>
       </div>
-      <!-- Blog card art is a PLACEHOLDER (flat color fill + fork-and-leaf mark). Replace each
-           .art's contents with the post's featured image once real images are available. -->
       <div class="posts">
         <a class="post reveal" href="#"><div class="art"><img src="img/blog-arfid.webp?v=20260929" width="1200" height="675" loading="lazy" alt=""></div><div class="txt"><span class="cat">Picky eating</span><h3>Is your child a picky eater or suffering from ARFID?</h3><span class="meta">by Christine</span></div></a>
         <a class="post reveal" href="#"><div class="art"><img src="img/blog-teen-food-freedom.webp?v=20260929" width="1200" height="675" loading="lazy" alt=""></div><div class="txt"><span class="cat">Diet culture</span><h3>Helping your teen go from food obsession to food freedom</h3><span class="meta">by Christine</span></div></a>
         <a class="post reveal" href="#"><div class="art"><img src="img/blog-baby-solids.webp?v=20260929" width="1200" height="675" loading="lazy" alt=""></div><div class="txt"><span class="cat">Feeding kids</span><h3>Help, my baby won’t eat solids!</h3><span class="meta">by Christine</span></div></a>
+      </div>
+      <div class="sec-cta">
+        <a class="carrot" href="#"><span>Browse all resources</span><svg class="ico"><use href="#i-arrow"/></svg></a>
       </div>
     </div>
   </section>
@@ -628,8 +618,7 @@ ul,ol{margin:0;padding:0;list-style:none}
     <span class="tree-mark" aria-hidden="true"></span>
     <div class="b-cta-grid">
       <div class="b-cta-copy">
-        <p class="eyebrow">Get started</p>
-        <h2 id="b-cta-h">Your first step is a <em>conversation.</em></h2>
+        <h2 id="b-cta-h">Your first step is a <em class="script">conversation.</em></h2>
         <p class="lede">Book a free 20-minute discovery call and we’ll talk through what’s going on, with no pressure and no commitment.</p>
         <div class="cta-row"><a class="btn btn-main btn-lg" href="#">Schedule Your Free Discovery Call</a></div>
       </div>
